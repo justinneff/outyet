@@ -1,0 +1,17 @@
+path: '/uncrowned'
+type: 'book'
+hashtags:
+  - '#uncrowned'
+  - '#cradleseries'
+  - '#willwight'
+  - '#iteration110'
+content:
+  title: 'Uncrowned'
+  author: 'will-wight'
+  series: 'cradle'
+  image: '/images/uncrowned.jpg'
+  description: 'Book 7 in the Cradle series'
+  release-date: 1569488400
+buy-links:
+  book: 'https://www.amazon.com/gp/product/B07X8ZH6BS/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07X8ZH6BS&linkCode=as2&tag=danielgary-20&linkId=0a46ca81a6d0e4c4ac84dceff77c95bb'
+  audiobook: 'https://www.amazon.com/gp/product/B07XTPSFPY/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07XTPSFPY&linkCode=as2&tag=danielgary-20&linkId=54781124591b09d34a948c11af647311'

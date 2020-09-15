@@ -1,12 +1,13 @@
-path: '/wintersteel'
+id: '/books/wintersteel'
 type: 'book'
 hashtags:
   - '#wintersteel'
   - '#cradleseries'
   - '#willwight'
   - '#iteration110'
-content:
-  title: 'Wintersteel (Cradle, #8)'
-  series: 'cradle'
-  author: 'will-wight'
-  description: 'Book 8 in the Cradle series'
+title: 'Wintersteel (Cradle, #8)'
+series:
+  - id: '/series/cradle'
+  - episode: 8
+author___NODE: '/authors/will-wight'
+description: 'Book 8 in the Cradle series'

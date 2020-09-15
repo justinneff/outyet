@@ -1,13 +1,17 @@
-path: '/series/cradle'
+id: '/series/cradle'
 type: 'books'
+title: 'Cradle Series'
+authors___NODE:
+  - '/authors/will-wight'
+image: '/images/uncrowned.jpg'
+description: 'Book 7 in the Cradle series'
+books___NODE:
+  - '/books/unsouled'
+  - '/books/uncrowned'
+  - '/books/wintersteel'
 hashtags:
   - '#cradleseries'
   - '#willwight'
   - '#iteration110'
-content:
-  title: 'Cradle Series'
-  image: '/images/uncrowned.jpg'
-  description: 'Book 7 in the Cradle series'
-  releaseDate: 1569488400A
 links:
   amazon: 'https://www.amazon.com/gp/product/B0753FP6SP?ref_=dbs_dp_rwt_sb_tkin&amp;binding=kindle_edition&_encoding=UTF8&tag=danielgary-20&linkCode=ur2&linkId=1d1fb6439f07b66bdf08f40661a1f276&camp=1789&creative=9325'

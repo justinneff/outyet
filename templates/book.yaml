@@ -1,0 +1,24 @@
+# Any field that is commented out is optional
+# Id's must be unique.  Duplicate ID's will not be merged
+# You can use amazon affiliate links or regular links
+
+id: '/books/book-title-in-kebab-case'
+type: 'book'
+title: 'Title of the Book'
+author___NODE: '/authors/author-name-in-kebab-case'
+
+# series___NODE: '/series/series-name-in-kebab-case'
+# series_index: 1 # Which book in the series is it
+
+image: '/images/cover.jpg' # Please provide the highest quality image you can find
+description: 'Description, preferable from Amazon'
+# release-date: 1569488400  If the release date is not officially announced, leave it out
+
+#hashtags:    List of twitter hashtags relevant to this book
+#  - '#bookTitle'
+
+buy-links:
+  book: 'Link to amazon listing for the book here'
+  audiobook: 'Link to amazon listing for the audiobook here'
+
+added-by: danielgary #Your github username here

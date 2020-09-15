@@ -3,8 +3,6 @@ type: 'books'
 title: 'Cradle Series'
 authors___NODE:
   - '/authors/will-wight'
-image: '/images/uncrowned.jpg'
-description: 'Book 7 in the Cradle series'
 books___NODE:
   - '/books/unsouled'
   - '/books/uncrowned'

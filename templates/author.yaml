@@ -1,0 +1,10 @@
+id: '/authors/author-name-in-kebab-case'
+#social:
+#  - twitter: '@authorTwitter'
+#  - facebook: 'authorFacebook'
+name: 'Author Name'
+image: '/images/authori-image.jpg'
+#series:
+#  - 'Any series relevant to this author'
+links:
+  - amazon: 'Link to amazon author page'

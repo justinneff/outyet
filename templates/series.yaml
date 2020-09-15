@@ -1,0 +1,13 @@
+id: '/series/series-name-in-kebab-case'
+type: 'books'
+title: 'Series Name'
+authors___NODE:
+  - '/authors/author-name-in-kebab-case'
+books___NODE:
+  - '/books/book-1-title-in-kebab-case'
+  - '/books/book-2-title-in-kebab-case'
+  - '/books/book-3-title-in-kebab-case'
+# hashtags:
+#  - '#hashTag'
+links:
+  amazon: 'Amazon link to series page'

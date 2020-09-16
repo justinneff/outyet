@@ -1,0 +1,223 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"$id": "http://example.com/example.json",
+	"type": "object",
+	"title": "The root schema",
+	"description": "The root schema comprises the entire JSON document.",
+	"default": {},
+	"examples": [
+		{
+			"id": "/authors/will-wight",
+			"social": [
+				{
+					"twitter": "@williamwight"
+				},
+				{
+					"facebook": "willwightauthor"
+				}
+			],
+			"name": "Will Wight",
+			"image": "/images/will-wight.jpg",
+			"books___NODE": [
+				"/books/uncrowned",
+				"/books/unsouled",
+				"/books/wintersteel"
+			],
+			"series___NODE": ["/series/cradle"],
+			"links": [
+				{
+					"amazon": "https://www.amazon.com/Will-Wight/e/B00D9S1IMO/ref=dp_byline_cont_pop_ebooks_1?&_encoding=UTF8&tag=danielgary-20&linkCode=ur2&linkId=676129460710dc7c7c332fb4f92619d0&camp=1789&creative=9325"
+				}
+			]
+		}
+	],
+	"required": ["id", "name", "image", "books___NODE", "links"],
+	"properties": {
+		"id": {
+			"$id": "#/properties/id",
+			"type": "string",
+			"title": "The id schema",
+			"description": "An explanation about the purpose of this instance.",
+			"default": "",
+			"examples": ["/authors/will-wight"]
+		},
+		"social": {
+			"$id": "#/properties/social",
+			"type": "array",
+			"title": "The social schema",
+			"description": "An explanation about the purpose of this instance.",
+			"default": [],
+			"examples": [
+				[
+					{
+						"twitter": "@williamwight"
+					},
+					{
+						"facebook": "willwightauthor"
+					}
+				]
+			],
+			"additionalItems": true,
+			"items": {
+				"$id": "#/properties/social/items",
+				"anyOf": [
+					{
+						"$id": "#/properties/social/items/anyOf/0",
+						"type": "object",
+						"title": "The first anyOf schema",
+						"description": "An explanation about the purpose of this instance.",
+						"default": {},
+						"examples": [
+							{
+								"twitter": "@williamwight"
+							}
+						],
+						"required": ["twitter"],
+						"properties": {
+							"twitter": {
+								"$id": "#/properties/social/items/anyOf/0/properties/twitter",
+								"type": "string",
+								"title": "The twitter schema",
+								"description": "An explanation about the purpose of this instance.",
+								"default": "",
+								"examples": ["@williamwight"]
+							}
+						},
+						"additionalProperties": true
+					},
+					{
+						"$id": "#/properties/social/items/anyOf/1",
+						"type": "object",
+						"title": "The second anyOf schema",
+						"description": "An explanation about the purpose of this instance.",
+						"default": {},
+						"examples": [
+							{
+								"facebook": "willwightauthor"
+							}
+						],
+						"required": ["facebook"],
+						"properties": {
+							"facebook": {
+								"$id": "#/properties/social/items/anyOf/1/properties/facebook",
+								"type": "string",
+								"title": "The facebook schema",
+								"description": "An explanation about the purpose of this instance.",
+								"default": "",
+								"examples": ["willwightauthor"]
+							}
+						},
+						"additionalProperties": true
+					}
+				]
+			}
+		},
+		"name": {
+			"$id": "#/properties/name",
+			"type": "string",
+			"title": "The name schema",
+			"description": "An explanation about the purpose of this instance.",
+			"default": "",
+			"examples": ["Will Wight"]
+		},
+		"image": {
+			"$id": "#/properties/image",
+			"type": "string",
+			"title": "The image schema",
+			"description": "An explanation about the purpose of this instance.",
+			"default": "",
+			"examples": ["/images/will-wight.jpg"]
+		},
+		"books___NODE": {
+			"$id": "#/properties/books___NODE",
+			"type": "array",
+			"title": "The books___NODE schema",
+			"description": "An explanation about the purpose of this instance.",
+			"default": [],
+			"examples": [["/books/uncrowned", "/books/unsouled"]],
+			"additionalItems": true,
+			"items": {
+				"$id": "#/properties/books___NODE/items",
+				"anyOf": [
+					{
+						"$id": "#/properties/books___NODE/items/anyOf/0",
+						"type": "string",
+						"title": "The first anyOf schema",
+						"description": "An explanation about the purpose of this instance.",
+						"default": "",
+						"examples": ["/books/uncrowned", "/books/unsouled"]
+					}
+				]
+			}
+		},
+		"series___NODE": {
+			"$id": "#/properties/series___NODE",
+			"type": "array",
+			"title": "The series___NODE schema",
+			"description": "An explanation about the purpose of this instance.",
+			"default": [],
+			"examples": [["/series/cradle"]],
+			"additionalItems": true,
+			"items": {
+				"$id": "#/properties/series___NODE/items",
+				"anyOf": [
+					{
+						"$id": "#/properties/series___NODE/items/anyOf/0",
+						"type": "string",
+						"title": "The first anyOf schema",
+						"description": "An explanation about the purpose of this instance.",
+						"default": "",
+						"examples": ["/series/cradle"]
+					}
+				]
+			}
+		},
+		"links": {
+			"$id": "#/properties/links",
+			"type": "array",
+			"title": "The links schema",
+			"description": "An explanation about the purpose of this instance.",
+			"default": [],
+			"examples": [
+				[
+					{
+						"amazon": "https://www.amazon.com/Will-Wight/e/B00D9S1IMO/ref=dp_byline_cont_pop_ebooks_1?&_encoding=UTF8&tag=danielgary-20&linkCode=ur2&linkId=676129460710dc7c7c332fb4f92619d0&camp=1789&creative=9325"
+					}
+				]
+			],
+			"additionalItems": true,
+			"items": {
+				"$id": "#/properties/links/items",
+				"anyOf": [
+					{
+						"$id": "#/properties/links/items/anyOf/0",
+						"type": "object",
+						"title": "The first anyOf schema",
+						"description": "An explanation about the purpose of this instance.",
+						"default": {},
+						"examples": [
+							{
+								"amazon": "https://www.amazon.com/Will-Wight/e/B00D9S1IMO/ref=dp_byline_cont_pop_ebooks_1?&_encoding=UTF8&tag=danielgary-20&linkCode=ur2&linkId=676129460710dc7c7c332fb4f92619d0&camp=1789&creative=9325"
+							}
+						],
+						"required": ["amazon"],
+						"properties": {
+							"amazon": {
+								"$id": "#/properties/links/items/anyOf/0/properties/amazon",
+								"type": "string",
+								"title": "The amazon schema",
+								"description": "An explanation about the purpose of this instance.",
+								"default": "",
+								"examples": [
+									"https://www.amazon.com/Will-Wight/e/B00D9S1IMO/ref=dp_byline_cont_pop_ebooks_1?&_encoding=UTF8&tag=danielgary-20&linkCode=ur2&linkId=676129460710dc7c7c332fb4f92619d0&camp=1789&creative=9325"
+								]
+							}
+						},
+						"additionalProperties": true
+					}
+				]
+			}
+		}
+	},
+	"additionalProperties": true
+}

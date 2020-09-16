@@ -11,7 +11,11 @@
     "start": "yarn run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "validate-books": "yarn ajv validate -s ./schemas/book.json -d \"./content/books/*.yaml\"",
+    "validate-authors": "yarn ajv validate -s ./schemas/author.json -d \"./content/authors/*.yaml\"",
+    "validate-series": "yarn ajv validate -s ./schemas/series.json -d \"./content/series/*.yaml\"",
+    "validate": "yarn run validate-books && yarn run validate-authors && yarn run validate-series"
   },
   "dependencies": {
     "gatsby": "^2.24.54",
@@ -24,6 +28,7 @@
   },
   "devDependencies": {
     "@mdx-js/mdx": "^1.6.16",
+    "ajv-cli": "^3.3.0",
     "prettier": "2.1.1"
   },
   "repository": {

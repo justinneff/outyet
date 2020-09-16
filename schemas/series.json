@@ -1,0 +1,189 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [
+      {
+          "id": "/series/cradle",
+          "type": "books",
+          "title": "Cradle Series",
+          "authors___NODE": [
+              "/authors/will-wight"
+          ],
+          "books___NODE": [
+              "/books/unsouled",
+              "/books/uncrowned",
+              "/books/wintersteel"
+          ],
+          "hashtags": [
+              "#cradleseries",
+              "#willwight",
+              "#iteration110"
+          ],
+          "links": {
+              "amazon": "https://www.amazon.com/gp/product/B0753FP6SP?ref_=dbs_dp_rwt_sb_tkin&amp;binding=kindle_edition&_encoding=UTF8&tag=danielgary-20&linkCode=ur2&linkId=1d1fb6439f07b66bdf08f40661a1f276&camp=1789&creative=9325"
+          }
+      }
+  ],
+  "required": [
+      "id",
+      "type",
+      "title",
+      "authors___NODE",
+      "books___NODE",
+      "hashtags",
+      "links"
+  ],
+  "properties": {
+      "id": {
+          "$id": "#/properties/id",
+          "type": "string",
+          "title": "The id schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "/series/cradle"
+          ]
+      },
+      "type": {
+          "$id": "#/properties/type",
+          "type": "string",
+          "title": "The type schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "books"
+          ]
+      },
+      "title": {
+          "$id": "#/properties/title",
+          "type": "string",
+          "title": "The title schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "Cradle Series"
+          ]
+      },
+      "authors___NODE": {
+          "$id": "#/properties/authors___NODE",
+          "type": "array",
+          "title": "The authors___NODE schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "examples": [
+              [
+                  "/authors/will-wight"
+              ]
+          ],
+          "additionalItems": true,
+          "items": {
+              "$id": "#/properties/authors___NODE/items",
+              "anyOf": [
+                  {
+                      "$id": "#/properties/authors___NODE/items/anyOf/0",
+                      "type": "string",
+                      "title": "The first anyOf schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                          "/authors/will-wight"
+                      ]
+                  }
+              ]
+          }
+      },
+      "books___NODE": {
+          "$id": "#/properties/books___NODE",
+          "type": "array",
+          "title": "The books___NODE schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "examples": [
+              [
+                  "/books/unsouled",
+                  "/books/uncrowned"
+              ]
+          ],
+          "additionalItems": true,
+          "items": {
+              "$id": "#/properties/books___NODE/items",
+              "anyOf": [
+                  {
+                      "$id": "#/properties/books___NODE/items/anyOf/0",
+                      "type": "string",
+                      "title": "The first anyOf schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                          "/books/unsouled",
+                          "/books/uncrowned"
+                      ]
+                  }
+              ]
+          }
+      },
+      "hashtags": {
+          "$id": "#/properties/hashtags",
+          "type": "array",
+          "title": "The hashtags schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "examples": [
+              [
+                  "#cradleseries",
+                  "#willwight"
+              ]
+          ],
+          "additionalItems": true,
+          "items": {
+              "$id": "#/properties/hashtags/items",
+              "anyOf": [
+                  {
+                      "$id": "#/properties/hashtags/items/anyOf/0",
+                      "type": "string",
+                      "title": "The first anyOf schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                          "#cradleseries",
+                          "#willwight"
+                      ]
+                  }
+              ]
+          }
+      },
+      "links": {
+          "$id": "#/properties/links",
+          "type": "object",
+          "title": "The links schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+              {
+                  "amazon": "https://www.amazon.com/gp/product/B0753FP6SP?ref_=dbs_dp_rwt_sb_tkin&amp;binding=kindle_edition&_encoding=UTF8&tag=danielgary-20&linkCode=ur2&linkId=1d1fb6439f07b66bdf08f40661a1f276&camp=1789&creative=9325"
+              }
+          ],
+          "required": [
+              "amazon"
+          ],
+          "properties": {
+              "amazon": {
+                  "$id": "#/properties/links/properties/amazon",
+                  "type": "string",
+                  "title": "The amazon schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                      "https://www.amazon.com/gp/product/B0753FP6SP?ref_=dbs_dp_rwt_sb_tkin&amp;binding=kindle_edition&_encoding=UTF8&tag=danielgary-20&linkCode=ur2&linkId=1d1fb6439f07b66bdf08f40661a1f276&camp=1789&creative=9325"
+                  ]
+              }
+          },
+          "additionalProperties": true
+      }
+  },
+  "additionalProperties": true
+}

@@ -1,22 +1,32 @@
-const fs = require('fs')
+const path = require('path')
 const { graphql } = require('gatsby')
-const yaml = require('js-yaml')
-// exports.createPages = async ({ actions }) => {
-//   const { createPage } = actions
 
-//   const result = await graphql(`
-//   query {
+exports.onPostBuild = ({ reporter }) => {
+	reporter.info(`Build completed`)
+}
 
-//   }
-//   `)
+exports.createPages = async ({ graphql, actions }) => {
+	const { createPage } = actions
+	const bookTemplate = path.resolve(`src/templates/book.tsx`)
+	const result = await graphql(`
+		query {
+			allBooksYaml {
+				edges {
+					node {
+						id
+					}
+				}
+			}
+		}
+	`)
 
-// 	createPage({
-// 		path: element.path,
-// 		component: require.resolve(`./src/templates/${element.type}.tsx`),
-// 		context: {
-// 			hashTags: element.hashTags,
-// 			content: element.content,
-// 			links: element.links,
-// 		},
-// 	})
-// }
+	result.data.allBooksYaml.edges.forEach(edge => {
+		createPage({
+			path: `${edge.node.id}`,
+			component: bookTemplate,
+			context: {
+				id: edge.node.id,
+			},
+		})
+	})
+}

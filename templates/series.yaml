@@ -10,4 +10,4 @@ books___NODE:
 # hashtags:
 #  - '#hashTag'
 links:
-  amazon: 'Amazon link to series page'
+  - amazon: 'Amazon link to series page'

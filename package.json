@@ -18,6 +18,7 @@
     "validate": "yarn run validate-books && yarn run validate-authors && yarn run validate-series"
   },
   "dependencies": {
+    "date-fns": "^2.16.1",
     "gatsby": "^2.24.54",
     "gatsby-source-filesystem": "^2.3.29",
     "gatsby-transformer-yaml": "^2.4.11",

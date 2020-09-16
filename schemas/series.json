@@ -158,8 +158,25 @@
       },
       "links": {
           "$id": "#/properties/links",
+			"type": "array",
+			"title": "The links schema",
+			"description": "An explanation about the purpose of this instance.",
+			"default": [],
+			"examples": [
+				[
+					{
+						"amazon": "https://www.amazon.com/gp/product/B0753FP6SP?ref_=dbs_dp_rwt_sb_tkin&amp;binding=kindle_edition&_encoding=UTF8&tag=danielgary-20&linkCode=ur2&linkId=1d1fb6439f07b66bdf08f40661a1f276&camp=1789&creative=9325"
+					}
+				]
+			],
+			"additionalItems": true,
+			"items": {
+				"$id": "#/items",
+				"anyOf": [
+					{
+						"$id": "#/items/anyOf/0",
           "type": "object",
-          "title": "The links schema",
+						"title": "The first anyOf schema",
           "description": "An explanation about the purpose of this instance.",
           "default": {},
           "examples": [
@@ -167,12 +184,10 @@
                   "amazon": "https://www.amazon.com/gp/product/B0753FP6SP?ref_=dbs_dp_rwt_sb_tkin&amp;binding=kindle_edition&_encoding=UTF8&tag=danielgary-20&linkCode=ur2&linkId=1d1fb6439f07b66bdf08f40661a1f276&camp=1789&creative=9325"
               }
           ],
-          "required": [
-              "amazon"
-          ],
+						"required": ["amazon"],
           "properties": {
               "amazon": {
-                  "$id": "#/properties/links/properties/amazon",
+								"$id": "#/items/anyOf/0/properties/amazon",
                   "type": "string",
                   "title": "The amazon schema",
                   "description": "An explanation about the purpose of this instance.",
@@ -184,6 +199,9 @@
           },
           "additionalProperties": true
       }
+				]
+			}
+		}
   },
   "additionalProperties": true
 }

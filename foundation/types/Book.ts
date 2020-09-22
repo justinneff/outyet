@@ -3,10 +3,13 @@ import { Series } from './Series'
 
 export type Book = {
 	author: Author
-	buy_links: any[]
+	buy_links: {
+		book?: string
+		audiobook?: string
+	}
 	description: string
 	image?: string
-	release_date?: number
+	release_date?: string
 	series: Series
 	title: string
 }

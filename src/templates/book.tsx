@@ -10,6 +10,7 @@ import { Countdown } from '../presentation/components/Countdown'
 import { BuyBookLink } from '../presentation/components/BuyBookLink'
 import { faAmazon, faAudible } from '@fortawesome/free-brands-svg-icons'
 import { Helmet } from 'react-helmet'
+import { parse } from 'date-fns'
 
 const BookTemplate: React.FC<PageProps> = ({ data }) => {
 	if (!data) {
@@ -18,11 +19,14 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 
 	const { edges } = (data as any).allBooksYaml
 	const bookNode = edges[0].node as Book
-	const buyAction =
-		bookNode.release_date > new Date().getTime() / 1000 ? 'Pre-order' : 'Buy'
-	const bookImage = bookNode.image || '/images/cover.jpg'
 
-	console.log(bookNode.buy_links)
+	const releaseDate = bookNode.release_date
+		? parse(bookNode.release_date, 'M/d/yyyy', new Date())
+		: undefined
+
+	const buyAction =
+		releaseDate.getTime() > new Date().getTime() / 1000 ? 'Pre-order' : 'Buy'
+	const bookImage = bookNode.image || '/images/cover.jpg'
 
 	return (
 		<article className="book-page-root">
@@ -55,18 +59,18 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 							/>
 							<p className="book-page-description">{bookNode.description}</p>
 
-							<Countdown to={bookNode.release_date!} />
+							{releaseDate && <Countdown to={releaseDate.getTime() / 1000} />}
 
 							<section className="buy-links row">
 								<BuyBookLink
 									icon={faAmazon}
-									link={bookNode.buy_links[0].book}
+									link={bookNode.buy_links.book}
 									action={buyAction}
 								/>
 								<BuyBookLink
 									icon={faAudible}
 									type="Audiobook"
-									link={bookNode.buy_links[1].audiobook}
+									link={bookNode.buy_links.audiobook}
 									action={buyAction}
 								/>
 							</section>

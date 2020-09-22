@@ -4,7 +4,7 @@ author___NODE: '/authors/will-wight'
 title: 'Wintersteel (Cradle, #8)'
 series___NODE: '/series/cradle'
 series_index: 8
-release-date: 1601982000
+release-date: 10/6/2020
 image: '/images/wintersteel.jpg'
 hashtags:
   - '#wintersteel'
@@ -12,8 +12,8 @@ hashtags:
   - '#willwight'
   - '#iteration110'
 buy-links:
-  - book: https://www.amazon.com/gp/product/B08JMF22F2/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B08JMF22F2&linkCode=as2&tag=danielgary-20&linkId=8d92bcd269e38d4e076d2b669cef32aa
-  - audiobook: https://www.amazon.com/gp/product/B08J8CRCCT/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B08J8CRCCT&linkCode=as2&tag=danielgary-20&linkId=6e4840cf6cfef58f1a04f5887526827c
+  book: https://www.amazon.com/gp/product/B08JMF22F2/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B08JMF22F2&linkCode=as2&tag=danielgary-20&linkId=8d92bcd269e38d4e076d2b669cef32aa
+  audiobook: https://www.amazon.com/gp/product/B08J8CRCCT/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B08J8CRCCT&linkCode=as2&tag=danielgary-20&linkId=6e4840cf6cfef58f1a04f5887526827c
 description: |
   As the Uncrowned King tournament reaches its final rounds, tensions between the competing factions are higher than ever. The outcome may determine the power balance throughout the rest of the world.
   Each Monarch schemes to seize any advantage they can...while far away, a Dreadgod stirs.

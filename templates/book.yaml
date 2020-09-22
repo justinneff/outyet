@@ -18,7 +18,7 @@ description: 'Description, preferable from Amazon'
 #  - '#bookTitle'
 
 buy-links:
-  - book: 'Link to amazon listing for the book here'
-  - audiobook: 'Link to amazon listing for the audiobook here'
+  book: 'Link to amazon listing for the book here'
+  audiobook: 'Link to amazon listing for the audiobook here'
 
 added-by: danielgary #Your github username here

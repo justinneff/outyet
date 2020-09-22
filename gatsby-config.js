@@ -1,3 +1,8 @@
+require('ts-node').register({
+	compilerOptions: {
+		esModuleInterop: true,
+	},
+})
 /**
  * Configure your Gatsby site with this file.
  *

@@ -66,12 +66,11 @@ export const Countdown: React.FC<CountdownProps> = ({ to }) => {
 		)
 	}, [to, setCurrentDate])
 
-	console.log(`${remainingMinutes}:${remainingSeconds}`)
 	if (remainingTime < 0) {
 		return (
 			<div className="released-on">
 				Released on
-				<br /> <b>{format(new Date(to * 1000), 'MMMM dd yyy')}</b>
+				<br /> <b>{format(new Date(to * 1000), 'MMMM d, yyy')}</b>
 			</div>
 		)
 	}

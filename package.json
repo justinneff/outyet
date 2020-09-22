@@ -18,19 +18,35 @@
     "validate": "yarn run validate-books && yarn run validate-authors && yarn run validate-series"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-brands-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "bootstrap": "^4.5.2",
     "date-fns": "^2.16.1",
+    "dotenv": "^8.2.0",
     "gatsby": "^2.24.54",
+    "gatsby-plugin-fontawesome-css": "^1.0.0",
+    "gatsby-plugin-sass": "^2.3.13",
     "gatsby-source-filesystem": "^2.3.29",
     "gatsby-transformer-yaml": "^2.4.11",
     "gatsby-transformer-yaml-full": "^0.3.4",
     "gatsby-yaml-full-markdown": "^0.3.4",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "reactstrap": "^8.6.0",
+    "sass": "^1.26.10"
   },
   "devDependencies": {
     "@mdx-js/mdx": "^1.6.16",
+    "@types/jest": "^26.0.14",
+    "@types/reactstrap": "^8.5.1",
     "ajv-cli": "^3.3.0",
-    "prettier": "2.1.1"
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "jest": "^26.4.2",
+    "prettier": "2.1.1",
+    "ts-jest": "^26.3.0",
+    "typescript": "^4.0.2"
   },
   "repository": {
     "type": "git",

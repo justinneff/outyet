@@ -1,7 +1,11 @@
 import format from 'date-fns/format'
 import isAfter from 'date-fns/isAfter'
 
-export const determineReleaseDate = (releaseDate?: number) => {
+export const determineReleaseDate = (
+	releaseDate?: number,
+	countdownStyle?: string,
+	releaseDateTeaser?: string
+) => {
 	if (!releaseDate) {
 		return 'Unknown'
 	}
@@ -12,5 +16,5 @@ export const determineReleaseDate = (releaseDate?: number) => {
 		return `Out on ${format(releaseDate, 'MMMM do, yyyy')}`
 	}
 
-	return `Out Now`
+	return `Released on ${format(releaseDate, 'MMMM do, yyyy')}`
 }

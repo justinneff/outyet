@@ -1,0 +1,61 @@
+body {
+	background-color: black;
+	color: white;
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Raleway', sans-serif;
+}
+.hero {
+	width: 100%;
+	height: 100vh;
+	overflow-y: auto;
+}
+.book-hero {
+	background-image: url('/images/bookshelf.jpg');
+	background-position: center center;
+	background-size: cover;
+}
+
+.hero-image-container,
+.release-date-container {
+	width: 100%;
+	max-width: 600px;
+}
+.release-date-container {
+	float: right;
+	padding: 4rem;
+}
+.hero-release-date {
+	flex: 1;
+}
+.book-page-image {
+	height: 700px;
+	margin: 0px auto;
+}
+.book-page-title {
+	font-size: 3.5rem;
+	font-weight: bold;
+	margin: 0;
+	text-transform: uppercase;
+}
+.book-page-author {
+	font-size: 32px;
+	margin-bottom: 2rem;
+}
+.wrapper {
+	margin-top: 4rem;
+}
+.book-page-description {
+	margin-top: 2rem;
+	font-size: 14px;
+	font-family: 'Work Sans', sans-serif;
+}
+.buy-links {
+	display: flex;
+	margin-top: 1rem;
+	justify-content: center;
+}
+.released-on {
+	text-align: center;
+	font-size: 2rem;
+}

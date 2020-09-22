@@ -10,11 +10,11 @@ export const determineReleaseDate = (
 		return 'Unknown'
 	}
 
-	const releaseDateInMilliseconds = releaseDate * 1000
+	const releaseDateInMillis = releaseDate * 1000
 
-	if (isAfter(releaseDateInMilliseconds, new Date())) {
-		return `Out on ${format(releaseDate, 'MMMM do, yyyy')}`
+	if (isAfter(releaseDateInMillis, new Date())) {
+		return `Out on ${format(releaseDateInMillis, 'MMMM do, yyyy')}`
 	}
 
-	return `Released on ${format(releaseDate, 'MMMM do, yyyy')}`
+	return `Out Now, released on ${format(releaseDateInMillis, 'MMMM do, yyyy')}`
 }

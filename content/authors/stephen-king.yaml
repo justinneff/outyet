@@ -1,0 +1,9 @@
+id: '/authors/stephen-king'
+social:
+  - twitter: '@StephenKing'
+name: 'Stephen King'
+image: '/images/stephen-king.jpg'
+books___NODE:
+  - '/books/carrie'
+links:
+  - amazon: 'https://amzn.to/33zAqsE'

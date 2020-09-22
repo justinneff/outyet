@@ -13,6 +13,9 @@ export async function createCalendar(
 		url: `https://outyet.net/calendar/${category}.ics`,
 	})
 
+	// Refresh every 12 hours
+	cal.ttl(60 * 60 * 12)
+
 	events.forEach(ev => {
 		cal.createEvent(ev)
 	})

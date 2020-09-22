@@ -30,7 +30,10 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 				<title>{bookNode.title}</title>
 			</Helmet>
 
-			<div className="container h-100  w-100" style={{ minHeight: '100vh' }}>
+			<div
+				className="container h-100 d-flex w-100"
+				style={{ minHeight: '100vh' }}
+			>
 				<div
 					className="row h-100 pb-5"
 					style={{

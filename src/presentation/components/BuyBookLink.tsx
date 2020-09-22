@@ -14,12 +14,13 @@ export const BuyBookLink: React.FC<{
 	type?: string
 	icon?: IconDefinition
 }> = ({ link, action = 'Buy', type = 'E-Book', icon }) => {
+	const withAction = `${action} ${type}`
+
 	return (
 		<a
+			className="col-12 col-md-6 d-block"
 			style={{
 				textDecoration: 'none',
-				display: 'inline-block',
-				marginRight: '4px',
 			}}
 			href={link}
 			target="_blank"
@@ -27,6 +28,7 @@ export const BuyBookLink: React.FC<{
 			<Button
 				style={{
 					color: 'black',
+					width: '100%',
 					borderRadius: '4px',
 					fontSize: '1rem',
 					display: 'flex',
@@ -39,8 +41,9 @@ export const BuyBookLink: React.FC<{
 					fixedWidth
 					style={{ marginTop: '4px', marginRight: '8px' }}
 					icon={icon}
-				/>{' '}
-				{action} {type}
+				/>
+				<span className="d-inline d-md-none">{type}</span>
+				<span className="d-none d-md-inline">{withAction}</span>
 			</Button>
 		</a>
 	)

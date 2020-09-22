@@ -9,6 +9,7 @@ import '../../static/css/_clock.scss'
 import { Countdown } from '../presentation/components/Countdown'
 import { BuyBookLink } from '../presentation/components/BuyBookLink'
 import { faAmazon, faAudible } from '@fortawesome/free-brands-svg-icons'
+import { Helmet } from 'react-helmet'
 
 const BookTemplate: React.FC<PageProps> = ({ data }) => {
 	if (!data) {
@@ -25,18 +26,27 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 
 	return (
 		<article className="book-page-root">
+			<Helmet>
+				<title>{bookNode.title}</title>
+			</Helmet>
+
 			<header className="hero book-hero">
 				<div className="container-fluid h-100">
 					<div className="row h-100" style={{ alignItems: 'center' }}>
+						<section className="text-center d-block d-md-none col-12 col-md-6"></section>
 						<section style={{ color: 'white' }} className="col-12 col-md-6">
 							<div className="release-date-container">
 								<h1 className="book-page-title">{bookNode.title}</h1>
-								<sub className="book-page-author">{bookNode.author.name}</sub>
+								<p className="book-page-author">{bookNode.author.name}</p>
+								<img
+									className="book-page-image d-block d-md-none"
+									src={bookImage}
+								/>
 								<p className="book-page-description">{bookNode.description}</p>
 
 								<Countdown to={bookNode.release_date!} />
 
-								<section className="buy-links">
+								<section className="buy-links row">
 									<BuyBookLink
 										icon={faAmazon}
 										link={bookNode.buy_links[0].book}
@@ -51,7 +61,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 								</section>
 							</div>
 						</section>
-						<section className="text-center col-12 col-md-6">
+						<section className="text-center d-none d-md-block col-12 col-md-6">
 							<img className="book-page-image" src={bookImage} />
 						</section>
 					</div>

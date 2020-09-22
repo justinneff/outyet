@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, PageProps } from 'gatsby'
 import { Book } from '../../foundation/types/Book'
-
+import SEO from '../presentation/components/Seo'
 import BuyLink from '../presentation/books/buyLink'
 import SeriesLink from '../presentation/books/seriesLink'
 import '../../static/css/_book.scss'
@@ -30,6 +30,11 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 
 	return (
 		<article className="book-page-root">
+			<SEO
+				title={bookNode.title}
+				description={bookNode.description}
+				article="book"
+			/>
 			<Helmet>
 				<title>{bookNode.title}</title>
 			</Helmet>

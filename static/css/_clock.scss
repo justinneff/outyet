@@ -1,8 +1,9 @@
-$font-size: 2.55rem;
+$font-size: 2.2rem;
+$digit-width: 2rem;
 
 $flip-duration: 0.7s;
-$divider-height: 0.05rem;
-$digit-width: 2rem;
+$divider-height: 0.01rem;
+
 $digit-height: 1.5 * $digit-width;
 $perspective: 2 * $digit-height;
 
@@ -45,7 +46,7 @@ $section-height: 1.5 * $digit-width + $divider-height;
 			font-size: $font-size;
 			color: var(--flip-dots-color);
 			line-height: $digit-height - $divider-height;
-			margin: 0 -10px;
+			margin: 0px;
 		}
 		&:first-child {
 			&::before {

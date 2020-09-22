@@ -1,30 +1,22 @@
+html {
+	background-color: black;
+}
 body {
 	background-color: black;
 	color: white;
 	margin: 0px;
 	padding: 0px;
 	font-family: 'Raleway', sans-serif;
-}
-.hero {
-	width: 100%;
-	height: 100vh;
-	overflow-y: auto;
-}
-.book-hero {
 	background-image: url('/images/bookshelf.jpg');
 	background-position: center center;
 	background-size: cover;
+	overflow-y: auto;
+	height: 100%;
+}
+.book-page-root {
+	min-height: 100vh;
 }
 
-.hero-image-container,
-.release-date-container {
-	width: 100%;
-	max-width: 600px;
-}
-.release-date-container {
-	float: right;
-	padding: 4rem;
-}
 .hero-release-date {
 	flex: 1;
 }
@@ -33,7 +25,7 @@ body {
 	margin: 0px auto;
 	@media (max-width: 600px) {
 		margin-top: 2rem;
-		width: 100%;
+		width: 75%;
 		height: auto;
 	}
 }
@@ -42,6 +34,7 @@ body {
 	overflow: hidden;
 	font-weight: bold;
 	margin: 0;
+	margin-top: 2rem;
 	text-transform: uppercase;
 
 	@media (max-width: 600px) {
@@ -64,6 +57,9 @@ body {
 	margin-top: 2rem;
 	font-size: 14px;
 	font-family: 'Work Sans', sans-serif;
+	@media (max-width: 600px) {
+		font-size: 1.1rem;
+	}
 }
 .buy-links {
 	display: flex;

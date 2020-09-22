@@ -30,43 +30,50 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 				<title>{bookNode.title}</title>
 			</Helmet>
 
-			<header className="hero book-hero">
-				<div className="container-fluid h-100">
-					<div className="row h-100" style={{ alignItems: 'center' }}>
-						<section className="text-center d-block d-md-none col-12 col-md-6"></section>
-						<section style={{ color: 'white' }} className="col-12 col-md-6">
-							<div className="release-date-container">
-								<h1 className="book-page-title">{bookNode.title}</h1>
-								<p className="book-page-author">{bookNode.author.name}</p>
-								<img
-									className="book-page-image d-block d-md-none"
-									src={bookImage}
+			<div className="container h-100  w-100" style={{ minHeight: '100vh' }}>
+				<div
+					className="row h-100 pb-5"
+					style={{
+						alignItems: 'center',
+						alignSelf: 'center',
+						justifySelf: 'center',
+						alignContent: 'center',
+						justifyContent: 'center',
+					}}
+				>
+					<section className="text-center d-block d-md-none col-12 col-md-6"></section>
+					<section style={{ color: 'white' }} className="col-12 col-md-6">
+						<div className="release-date-container">
+							<h1 className="book-page-title">{bookNode.title}</h1>
+							<p className="book-page-author">{bookNode.author.name}</p>
+							<img
+								className="book-page-image d-block d-md-none"
+								src={bookImage}
+							/>
+							<p className="book-page-description">{bookNode.description}</p>
+
+							<Countdown to={bookNode.release_date!} />
+
+							<section className="buy-links row">
+								<BuyBookLink
+									icon={faAmazon}
+									link={bookNode.buy_links[0].book}
+									action={buyAction}
 								/>
-								<p className="book-page-description">{bookNode.description}</p>
-
-								<Countdown to={bookNode.release_date!} />
-
-								<section className="buy-links row">
-									<BuyBookLink
-										icon={faAmazon}
-										link={bookNode.buy_links[0].book}
-										action={buyAction}
-									/>
-									<BuyBookLink
-										icon={faAudible}
-										type="Audiobook"
-										link={bookNode.buy_links[1].audiobook}
-										action={buyAction}
-									/>
-								</section>
-							</div>
-						</section>
-						<section className="text-center d-none d-md-block col-12 col-md-6">
-							<img className="book-page-image" src={bookImage} />
-						</section>
-					</div>
+								<BuyBookLink
+									icon={faAudible}
+									type="Audiobook"
+									link={bookNode.buy_links[1].audiobook}
+									action={buyAction}
+								/>
+							</section>
+						</div>
+					</section>
+					<section className="text-center d-none d-md-block col-12 col-md-6">
+						<img className="book-page-image" src={bookImage} />
+					</section>
 				</div>
-			</header>
+			</div>
 		</article>
 	)
 }

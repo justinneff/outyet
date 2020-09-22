@@ -1,0 +1,10 @@
+id: '/authors/ernest-cline'
+social:
+  - twitter: '@readyplayerone'
+name: 'Ernest Cline'
+image: '/images/ernest-cline.jpg'
+books___NODE:
+  - '/books/readyplayerone'
+  - '/books/readyplayertwo'
+links:
+  - amazon: 'https://amzn.to/3kDReoZ'

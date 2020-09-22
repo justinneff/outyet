@@ -2,8 +2,6 @@ import React from 'react'
 import { graphql, PageProps } from 'gatsby'
 import { Book } from '../../foundation/types/Book'
 import SEO from '../presentation/components/Seo'
-import BuyLink from '../presentation/books/buyLink'
-import SeriesLink from '../presentation/books/seriesLink'
 import '../../static/css/_book.scss'
 import '../../static/css/_clock.scss'
 import { Countdown } from '../presentation/components/Countdown'
@@ -11,6 +9,7 @@ import { BuyBookLink } from '../presentation/components/BuyBookLink'
 import { faAmazon, faAudible } from '@fortawesome/free-brands-svg-icons'
 import { Helmet } from 'react-helmet'
 import { parse } from 'date-fns'
+import CalendarFooter from '../presentation/components/CalendarFooter'
 
 const BookTemplate: React.FC<PageProps> = ({ data }) => {
 	if (!data) {
@@ -25,7 +24,9 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 		: undefined
 
 	const buyAction =
-		releaseDate.getTime() > new Date().getTime() / 1000 ? 'Pre-order' : 'Buy'
+		releaseDate.getTime() / 1000 > new Date().getTime() / 1000
+			? 'Pre-order'
+			: 'Buy'
 	const bookImage = bookNode.image || '/images/cover.jpg'
 
 	return (
@@ -41,7 +42,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 
 			<div
 				className="container h-100 d-flex w-100"
-				style={{ minHeight: '100vh' }}
+				style={{ minHeight: '100vh', paddingBottom: '40px' }}
 			>
 				<div
 					className="row h-100 pb-5"
@@ -86,6 +87,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 					</section>
 				</div>
 			</div>
+			{buyAction === 'Pre-order' && <CalendarFooter />}
 		</article>
 	)
 }

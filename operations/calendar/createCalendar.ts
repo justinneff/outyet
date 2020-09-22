@@ -7,6 +7,8 @@ export async function createCalendar(
 	events: Array<EventData>
 ) {
 	const cal = ical({
+		method: 'publish',
+		scale: 'gregorian',
 		domain: 'outyet.net',
 		prodId: { company: 'outyet', product: category },
 		name,

@@ -40,7 +40,7 @@ export async function createPages({ graphql, actions }) {
 
 	const events = result.data.allBooksYaml.edges.map(e => {
 		const node = e.node
-		return createEventDataFromBook(e.node)
+		return createEventDataFromBook(node)
 	})
 
 	ensureDirSync('./public/calendar')

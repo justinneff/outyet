@@ -28,10 +28,17 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 			? 'Pre-order'
 			: 'Buy'
 	const bookImage = bookNode.image || '/images/cover.jpg'
+	const seoImage = {
+		src: bookImage,
+		height: 700,
+		width: 400,
+	}
 
 	return (
 		<article className="book-page-root">
 			<SEO
+				lang="en"
+				image={seoImage}
 				title={bookNode.title}
 				description={bookNode.description}
 				article="book"
@@ -60,6 +67,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 							<h1 className="book-page-title">{bookNode.title}</h1>
 							<p className="book-page-author">{bookNode.author.name}</p>
 							<img
+								alt={bookNode.title}
 								className="book-page-image d-block d-md-none"
 								src={bookImage}
 							/>

@@ -5,7 +5,10 @@ author___NODE: '/authors/will-wight'
 series___NODE: '/series/cradle'
 series_index: 1
 image: '/images/unsouled.jpg'
-description: 'Book 1 in the Cradle series'
+description: |
+  Sacred artists follow a thousand Paths to power, using their souls to control the forces of the natural world.
+  Lindon is Unsouled, forbidden to learn the sacred arts of his clan.
+  When faced with a looming fate he cannot ignore, he must rise beyond anything he's ever known...and forge his own Path.
 release-date: 5/20/2017
 hashtags:
   - '#unsouled'
@@ -15,6 +18,4 @@ hashtags:
 buy-links:
   book: 'https://www.amazon.com/gp/product/B01H1CYBS6/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01H1CYBS6&linkCode=as2&tag=danielgary-20&linkId=6622cbb2f9a467d126c3f0768aa84512'
   audiobook: 'https://www.amazon.com/gp/product/B07XTQDM6Q/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07XTQDM6Q&linkCode=as2&tag=danielgary-20&linkId=b1577ca55ffde4f25b342b5ecac1164f'
-styles:
-  page:
-    background: 'black'
+

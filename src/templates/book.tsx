@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, PageProps } from 'gatsby'
+import { graphql, PageProps, useStaticQuery } from 'gatsby'
 import { Book } from '../../foundation/types/Book'
 import SEO from '../presentation/components/Seo'
 import '../../static/css/_book.scss'
@@ -8,7 +8,7 @@ import { Countdown } from '../presentation/components/Countdown'
 import { BuyBookLink } from '../presentation/components/BuyBookLink'
 import { faAmazon, faAudible } from '@fortawesome/free-brands-svg-icons'
 import { Helmet } from 'react-helmet'
-import { parse } from 'date-fns'
+import { format, parse } from 'date-fns'
 import BookFooter from '../presentation/components/BookFooter'
 
 const BookTemplate: React.FC<PageProps> = ({ data }) => {
@@ -16,7 +16,11 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 		return null
 	}
 
-	const { edges } = (data as any).allBooksYaml
+	const queryData = data as any
+	const { edges } = queryData.allBooksYaml
+
+	const { siteUrl } = queryData.site.siteMetadata
+
 	const bookNode = edges[0].node as Book
 
 	const releaseDate = bookNode.release_date
@@ -34,9 +38,30 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 		width: 400,
 	}
 
+	const structuredData = `
+		{
+			"@context": "https://schema.org/",
+			"@type": "Event",
+			"name": "${bookNode.title} Release",
+			"startDate": "${releaseDate ? format(releaseDate, 'yyyy-MM-dd') : ''}",
+			"endDate": "${releaseDate ? format(releaseDate, 'yyyy-MM-dd') : ''}",
+			"eventStatus": "https://schema.org/EventScheduled",
+			"eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+			"location": {
+				"@type": "VirtualLocation",
+				"url": "${bookNode.buy_links.book}"
+			},
+			"image": [
+				"${siteUrl}${bookImage}"
+			],
+			"description": "${bookNode.description}"
+		}
+		`
+
 	return (
 		<article className="book-page-root">
 			<SEO
+				structuredData={structuredData}
 				lang="en"
 				image={seoImage}
 				title={bookNode.title}
@@ -115,6 +140,7 @@ export const pageQuery = graphql`
 					type
 					series_index
 					author {
+						id
 						name
 					}
 					buy_links {
@@ -128,6 +154,12 @@ export const pageQuery = graphql`
 						}
 					}
 				}
+			}
+		}
+
+		site {
+			siteMetadata {
+				siteUrl: url
 			}
 		}
 	}

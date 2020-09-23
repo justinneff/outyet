@@ -3,7 +3,14 @@ import { Helmet } from 'react-helmet'
 import { useLocation } from '@reach/router'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const SEO = ({ title, lang, description, image: metaImage, article }) => {
+const SEO = ({
+	structuredData,
+	title,
+	lang,
+	description,
+	image: metaImage,
+	article,
+}) => {
 	const { pathname } = useLocation()
 	const { site } = useStaticQuery(query)
 
@@ -40,6 +47,8 @@ const SEO = ({ title, lang, description, image: metaImage, article }) => {
 					: []
 			}
 		>
+			<script type="application/ld+json">{structuredData}</script>
+
 			<meta name="description" content={seo.description} />
 			<meta name="keywords" content={keywords} />
 

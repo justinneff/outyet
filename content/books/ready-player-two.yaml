@@ -1,0 +1,15 @@
+id: '/books/ready-player-two'
+type: 'book'
+title: 'Ready Player Two'
+author___NODE: '/authors/ernest-cline'
+image: '/images/readyplayertwo.jpg'
+description: 'The highly anticipated sequel to the beloved worldwide bestseller Ready Player One, the “ridiculously fun and large-hearted” (NPR) near-future adventure that inspired the blockbuster Steven Spielberg film.'
+release-date: 11/24/2020
+hashtags:
+  - '#readyplayertwo'
+  - '#ernestcline'
+  - '#virtualreality'
+  - '#scifi'
+buy-links:
+  book: 'https://amzn.to/2RPEJdM'
+  audiobook: 'https://amzn.to/3hRvIeD'

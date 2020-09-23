@@ -1,12 +1,9 @@
-import {
-	faAmazon,
-	faAudible,
-	IconDefinition,
-} from '@fortawesome/free-brands-svg-icons'
+import { IconDefinition } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import ReactGA from 'react-ga'
 import React from 'react'
 import { Button } from 'reactstrap'
+import { AnalyticsCategory } from '../../../foundation/enums/AnalyticsCategory'
 
 export const BuyBookLink: React.FC<{
 	link: string
@@ -15,6 +12,13 @@ export const BuyBookLink: React.FC<{
 	icon?: IconDefinition
 }> = ({ link, action = 'Buy', type = 'E-Book', icon }) => {
 	const withAction = `${action} ${type}`
+
+	const captureClickEvent = e => {
+		ReactGA.event({
+			category: AnalyticsCategory.BuyBookLink,
+			action: `${type} button clicked in order to ${action}`,
+		})
+	}
 
 	return (
 		<a
@@ -26,6 +30,7 @@ export const BuyBookLink: React.FC<{
 			target="_blank"
 		>
 			<Button
+				onClick={captureClickEvent}
 				style={{
 					color: 'black',
 					width: '100%',

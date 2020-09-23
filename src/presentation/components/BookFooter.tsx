@@ -1,11 +1,17 @@
 import { faCalendar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import ReactGA from 'react-ga'
+import { AnalyticsCategory } from '../../../foundation/enums/AnalyticsCategory'
 
-const CalendarFooter: React.FC = () => {
+const BookFooter: React.FC = () => {
 	return (
 		<div
 			onClick={() => {
+				ReactGA.event({
+					category: AnalyticsCategory.BookCalendarAlert,
+					action: `Clicked footer to receive book release date notifications`,
+				})
 				window.location.href = 'https://outyet.net/calendar/books.ics'
 			}}
 			className="d-flex w-100"
@@ -29,4 +35,4 @@ const CalendarFooter: React.FC = () => {
 	)
 }
 
-export default CalendarFooter
+export default BookFooter

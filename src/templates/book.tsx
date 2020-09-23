@@ -9,7 +9,7 @@ import { BuyBookLink } from '../presentation/components/BuyBookLink'
 import { faAmazon, faAudible } from '@fortawesome/free-brands-svg-icons'
 import { Helmet } from 'react-helmet'
 import { parse } from 'date-fns'
-import CalendarFooter from '../presentation/components/CalendarFooter'
+import BookFooter from '../presentation/components/BookFooter'
 
 const BookTemplate: React.FC<PageProps> = ({ data }) => {
 	if (!data) {
@@ -87,7 +87,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 					</section>
 				</div>
 			</div>
-			{buyAction === 'Pre-order' && <CalendarFooter />}
+			{buyAction === 'Pre-order' && <BookFooter />}
 		</article>
 	)
 }

@@ -43,7 +43,7 @@ const SEO = ({ title, lang, description, image: metaImage, article }) => {
 			<meta name="description" content={seo.description} />
 			<meta name="keywords" content={keywords} />
 
-			{metaImage && <meta name="og:image" content={image} />}
+			<meta name="og:image" content={image || null} />
 			{metaImage && <meta name="og:image:width" content={metaImage.width} />}
 			{metaImage && <meta name="og:image:height" content={metaImage.height} />}
 			{seo.url && <meta name="og:url" content={seo.url} />}
@@ -57,7 +57,9 @@ const SEO = ({ title, lang, description, image: metaImage, article }) => {
 			{metaImage && <meta name="twitter:card" content="summary_large_image" />}
 			{!metaImage && <meta name="twitter:card" content="summary" />}
 			<meta name="twitter:creator" content="OutYet" />
-			{seo.title && <meta name="twitter:title" content={seo.title} />}
+			{seo.title && (
+				<meta name="twitter:title" content={`OutYet · ${seo.title}`} />
+			)}
 			{seo.description && (
 				<meta name="twitter:description" content={seo.description} />
 			)}

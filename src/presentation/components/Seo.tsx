@@ -48,7 +48,7 @@ const SEO = ({ title, lang, description, image: metaImage, article }) => {
 			{metaImage && <meta name="og:image:height" content={metaImage.height} />}
 			{seo.url && <meta name="og:url" content={seo.url} />}
 			{(article ? true : null) && <meta name="og:type" content="website" />}
-			{seo.title && <meta name="og:title" content={seo.title} />}
+			{seo.title && <meta name="og:title" content={`OutYet · ${seo.title}`} />}
 			{seo.description && (
 				<meta name="og:description" content={seo.description} />
 			)}

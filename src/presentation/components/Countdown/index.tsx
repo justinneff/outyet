@@ -68,38 +68,44 @@ export const Countdown: React.FC<CountdownProps> = ({ to }) => {
 
 	if (remainingTime < 0) {
 		return (
-			<div className="released-on">
+			<div className="release-text">
 				Released on
 				<br /> <b>{format(new Date(to * 1000), 'MMMM d, yyy')}</b>
 			</div>
 		)
 	}
 	return (
-		<ul className="flip-clock-container">
-			<CountdownPiece
-				max={60}
-				keyPrefix="Seconds"
-				value={remainingSeconds}
-				minDigits={2}
-			/>
-			<CountdownPiece
-				max={60}
-				keyPrefix="Minutes"
-				value={remainingMinutes}
-				minDigits={2}
-			/>
-			<CountdownPiece
-				max={60}
-				keyPrefix="Hours"
-				value={remainingHours}
-				minDigits={2}
-			/>
-			<CountdownPiece
-				max={60}
-				keyPrefix="Days"
-				value={remainingDays}
-				minDigits={2}
-			/>
-		</ul>
+		<div>
+			<div className="release-text" style={{ marginBottom: '10px' }}>
+				Releases on
+				<br /> <b>{format(new Date(to * 1000), 'MMMM d, yyy')}</b>
+			</div>
+			<ul className="flip-clock-container">
+				<CountdownPiece
+					max={60}
+					keyPrefix="Seconds"
+					value={remainingSeconds}
+					minDigits={2}
+				/>
+				<CountdownPiece
+					max={60}
+					keyPrefix="Minutes"
+					value={remainingMinutes}
+					minDigits={2}
+				/>
+				<CountdownPiece
+					max={60}
+					keyPrefix="Hours"
+					value={remainingHours}
+					minDigits={2}
+				/>
+				<CountdownPiece
+					max={60}
+					keyPrefix="Days"
+					value={remainingDays}
+					minDigits={2}
+				/>
+			</ul>
+		</div>
 	)
 }

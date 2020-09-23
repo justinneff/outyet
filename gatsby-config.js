@@ -15,6 +15,8 @@ require('dotenv').config({
 
 module.exports = {
 	siteMetadata: {
+		keywords:
+			'books, movies, games, tv shows, release dates, pre-order, audiobook, kindle, countdown',
 		title: 'OutYet',
 		titleTemplate: '%s · OutYet',
 		description:

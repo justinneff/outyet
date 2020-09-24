@@ -43,7 +43,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 	const shareMessage =
 		buyAction === 'Pre-order'
 			? `Countdown to the release of ${bookNode.title} on ${bookNode.release_date} now at Outyet`
-			: `${bookNode.title} is avilable now!`
+			: `${bookNode.title} is available now!`
 
 	const structuredData = `
 		{
@@ -65,7 +65,6 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 		}
 		`
 
-
 	return (
 		<article className="book-page-root">
 			<SEO
@@ -78,7 +77,6 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 			/>
 			<Helmet>
 				<title>Outyet - {bookNode.title}</title>
-
 			</Helmet>
 
 			<div
@@ -114,7 +112,6 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 							<p className="book-page-description">{bookNode.description}</p>
 
 							{releaseDate && <Countdown to={releaseDate.getTime() / 1000} />}
-
 
 							<section className="buy-links row">
 								<BuyBookLink

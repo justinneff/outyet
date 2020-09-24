@@ -19,8 +19,9 @@ description: |
 
 release-date: 11/17/2020
 
-#hashtags:    List of twitter hashtags relevant to this book
-#  - '#bookTitle'
+hashtags:
+  - '#stormlightarchive'
+  - "stormlight"
 
 buy-links:
   book: 'https://amzn.to/2EpLsId'

@@ -98,6 +98,11 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 					<section className="text-center d-block d-md-none col-12 col-md-6"></section>
 					<section style={{ color: 'white' }} className="col-12 col-md-6">
 						<div className="release-date-container">
+							<img
+								alt={bookNode.title}
+								className="book-page-image d-block d-md-none"
+								src={bookImage}
+							/>
 							<h1 className="book-page-title">{bookNode.title}</h1>
 
 							<div className="py-1">
@@ -136,11 +141,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 									outline
 								/>
 							</div>
-							<img
-								alt={bookNode.title}
-								className="book-page-image d-block d-md-none"
-								src={bookImage}
-							/>
+
 							<p className="book-page-description">{bookNode.description}</p>
 
 							{releaseDate && (

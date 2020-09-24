@@ -4,7 +4,7 @@
 	"type": "object",
 	"title": "The root schema",
 	"description": "The root schema comprises the entire JSON document.",
-	"required": ["id", "type", "title", "author___NODE", "description"],
+	"required": ["id", "type", "title", "genre", "author___NODE", "description"],
 	"properties": {
 		"id": {
 			"$id": "#/properties/id",
@@ -29,6 +29,14 @@
 			"description": "An explanation about the purpose of this instance.",
 			"default": "",
 			"examples": ["Uncrowned (Cradle, #7)"]
+		},
+		"genre": {
+			"$id": "#/properties/genre",
+			"type": "string",
+			"title": "The genre schema",
+			"description": "An explanation about the purpose of this instance.",
+			"default": "",
+			"examples": ["Science Fiction"]
 		},
 		"author___NODE": {
 			"$id": "#/properties/author___NODE",

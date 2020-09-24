@@ -1,6 +1,7 @@
 id: '/books/carrie'
 type: 'book'
 title: 'Carrie'
+genre: 'Horror'
 author___NODE: '/authors/stephen-king'
 image: '/images/carrie.jpg'
 description: "Stephen King's legendary debut, about a teenage outcast and the revenge she enacts on her classmates. Carrie White may be picked on by her classmates, but she has a gift. She can move things with her mind. Doors lock. Candles fall. This is her power and her problem. Then, an act of kindness, as spontaneous as the vicious taunts of her classmates, offers Carrie a chance to be a normal...until an unexpected cruelty turns her gift into a weapon of horror and destruction that no one will ever forget."

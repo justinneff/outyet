@@ -5,6 +5,7 @@
 id: '/books/rhythm-of-war'
 type: 'book'
 title: 'Rhythm of War (Stormlight Archives, #4)'
+genre: 'Epic Fantasy'
 author___NODE: '/authors/brandon-sanderson'
 
 series___NODE: '/series/stormlight-archives'
@@ -21,7 +22,9 @@ release-date: 11/17/2020
 
 hashtags:
   - '#stormlightarchive'
-  - "stormlight"
+  - '#stormlight'
+  - '#brandonsanderson'
+  - '#rhytmofwar'
 
 buy-links:
   book: 'https://amzn.to/2EpLsId'

@@ -1,10 +1,10 @@
 ---
 name: Add Book Data
 about: Describes the data needed for adding a book
-title: "[Book] - TITLE"
+title: '[Book] - TITLE'
+genre: ''
 labels: ''
 assignees: ''
-
 ---
 
 Make sure your PR has all of the following:

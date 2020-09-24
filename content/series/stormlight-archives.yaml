@@ -2,7 +2,7 @@ id: '/series/stormlight-archives'
 type: 'books'
 title: 'Stormlight Archives'
 authors___NODE:
-  - '/authors/will-wight'
+  - '/authors/brandon-sanderson'
 books___NODE:
   - '/books/rhythm-of-war'
 hashtags:

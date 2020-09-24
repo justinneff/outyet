@@ -9,6 +9,7 @@ export type Book = {
 		audiobook?: string
 	}
 	description: string
+	genre: string
 	image?: string
 	hashtags?: string[]
 	release_date?: string

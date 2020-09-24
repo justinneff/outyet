@@ -97,7 +97,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 					<section style={{ color: 'white' }} className="col-12 col-md-6">
 						<div className="release-date-container">
 							<h1 className="book-page-title">{bookNode.title}</h1>
-							<p className="book-page-author">{bookNode.author.name}</p>
+							<p className="book-page-author">{`${bookNode.author.name} · ${bookNode.genre}`}</p>
 
 							<SocialShare
 								id={bookNode.id}
@@ -150,6 +150,7 @@ export const pageQuery = graphql`
 					hashtags
 					release_date
 					title
+					genre
 					type
 					series_index
 					author {

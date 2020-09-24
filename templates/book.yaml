@@ -5,6 +5,7 @@
 id: '/books/book-title-in-kebab-case'
 type: 'book'
 title: 'Title of the Book'
+genre: 'Main genre of the book according to wikipedia, goodreads, etc...'
 author___NODE: '/authors/author-name-in-kebab-case'
 
 # series___NODE: '/series/series-name-in-kebab-case'

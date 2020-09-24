@@ -100,17 +100,18 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 						<div className="release-date-container">
 							<h1 className="book-page-title">{bookNode.title}</h1>
 
-							<ButtonLink
-								to={bookNode.author.id}
-								text={bookNode.author.name}
-								category={AnalyticsCategory.Navigation}
-								icon={<FontAwesomeIcon icon={faUser} fixedWidth />}
-								color="light"
-								outline
-							/>
-
+							<div className="py-1">
+								<ButtonLink
+									to={bookNode.author.id}
+									text={bookNode.author.name}
+									category={AnalyticsCategory.Navigation}
+									icon={<FontAwesomeIcon icon={faUser} fixedWidth />}
+									color="light"
+									outline
+								/>
+							</div>
 							{bookNode.series && (
-								<div className=" py-2 d-block">
+								<div className=" py-1 d-block">
 									<ButtonLink
 										category={AnalyticsCategory.Navigation}
 										to={bookNode.series.id}
@@ -124,16 +125,17 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 									/>
 								</div>
 							)}
-							<ButtonLink
-								category={AnalyticsCategory.Navigation}
-								to={`/books/genre/${bookNode.genre}`}
-								text={bookNode.genre}
-								icon={<FontAwesomeIcon icon={faTag} fixedWidth />}
-								color="light"
-								size="sm"
-								outline
-							/>
-
+							<div className="py-1">
+								<ButtonLink
+									category={AnalyticsCategory.Navigation}
+									to={`/books/genre/${bookNode.genre}`}
+									text={bookNode.genre}
+									icon={<FontAwesomeIcon icon={faTag} fixedWidth />}
+									color="light"
+									size="sm"
+									outline
+								/>
+							</div>
 							<img
 								alt={bookNode.title}
 								className="book-page-image d-block d-md-none"
@@ -183,7 +185,6 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 					</section>
 				</div>
 			</div>
-			{/* {buyAction === 'Pre-order' && <BookFooter />} */}
 		</article>
 	)
 }

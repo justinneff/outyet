@@ -13,15 +13,15 @@ export const SocialShare: React.FC<{
 	const shareUrl = new URL(id, `https://outyet.net`).toString()
 
 	return <div className='social-share'>
-		<FacebookShareButton quote={text} url={shareUrl} hashtag={hashtags.join(' ')}>
-			<Button className='mr-2' size='sm' color='warning' outline ><FontAwesomeIcon fixedWidth icon={faFacebookF} /> Facebook</Button>
+		<FacebookShareButton type='button' resetButtonStyle={false} className='btn btn-sm btn-outline-warning mr-2' quote={text} url={shareUrl} hashtag={hashtags.join(' ')}>
+			<FontAwesomeIcon fixedWidth icon={faFacebookF} /> Facebook
 		</FacebookShareButton>
 
-		<TwitterShareButton title={text} hashtags={hashtags.map(h => h.replace('#', ''))} url={shareUrl}>
-			<Button className='mr-2' size='sm' color='warning' outline><FontAwesomeIcon fixedWidth icon={faTwitter} /> Twitter</Button>
+		<TwitterShareButton type='button' resetButtonStyle={false} className='btn btn-sm btn-outline-warning mr-2' title={text} hashtags={hashtags.map(h => h.replace('#', ''))} url={shareUrl}>
+			<FontAwesomeIcon fixedWidth icon={faTwitter} /> Twitter
 		</TwitterShareButton>
-		<RedditShareButton title={text} url={shareUrl} >
-			<Button size='sm' color='warning' outline><FontAwesomeIcon fixedWidth icon={faReddit} /> Reddit</Button>
+		<RedditShareButton type='button' resetButtonStyle={false} className='btn btn-sm btn-outline-warning mr-2' title={text} url={shareUrl} >
+			<FontAwesomeIcon fixedWidth icon={faReddit} /> Reddit
 		</RedditShareButton>
 	</div>
 }

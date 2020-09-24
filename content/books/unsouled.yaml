@@ -1,7 +1,8 @@
 id: '/books/unsouled'
 type: 'book'
-title: 'Unsouled (Cradle, #1)'
 genre: 'Fantasy'
+title: 'Unsouled'
+
 author___NODE: '/authors/will-wight'
 series___NODE: '/series/cradle'
 series_index: 1

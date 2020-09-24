@@ -1,0 +1,58 @@
+import { Link } from 'gatsby'
+import React from 'react'
+import { Button } from 'reactstrap'
+import ReactGA from 'react-ga'
+import { AnalyticsCategory } from '../../../foundation/enums/AnalyticsCategory'
+export const ButtonLink: React.FC<{
+	text: string
+	to: string
+	color: string
+	outline?: boolean
+	size?: string
+	target?: string
+	className?: string
+	category: AnalyticsCategory
+	onClick?: (e: any) => void
+	icon?: React.ReactNode
+}> = ({
+	text,
+	to,
+	color,
+	outline,
+	size,
+	icon,
+	onClick,
+	target,
+	className,
+	category,
+}) => {
+	const onClickWrapper = (e: any) => {
+		ReactGA.event({
+			category: category,
+			action: `Button click: ${text}`,
+			label: to,
+		})
+
+		if (onClick) {
+			onClick(e)
+		}
+	}
+
+	return (
+		<div style={{ display: 'inline-block' }}>
+			<Link style={{ textDecoration: 'none' }} target={target} to={to}>
+				<Button
+					className={className}
+					style={{ display: 'flex', alignItems: 'center' }}
+					onClick={onClickWrapper}
+					size={size}
+					color={color}
+					outline={outline}
+				>
+					{icon && <div className="mr-2">{icon}</div>}{' '}
+					<div className="flex-1">{text}</div>
+				</Button>
+			</Link>
+		</div>
+	)
+}

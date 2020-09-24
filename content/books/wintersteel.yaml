@@ -1,8 +1,11 @@
 id: '/books/wintersteel'
 type: 'book'
 author___NODE: '/authors/will-wight'
-title: 'Wintersteel (Cradle, #8)'
+
 genre: 'Fantasy'
+
+title: 'Wintersteel'
+
 series___NODE: '/series/cradle'
 series_index: 8
 release-date: 10/6/2020

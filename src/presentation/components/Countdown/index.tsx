@@ -1,6 +1,10 @@
+import { faCalendar, faCalendarPlus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { format } from 'date-fns'
+import { Link } from 'gatsby'
 import React from 'react'
 import { useEffect, useState } from 'react'
+import { Button } from 'reactstrap'
 
 import { CountdownPiece } from './CountdownPiece'
 
@@ -78,7 +82,21 @@ export const Countdown: React.FC<CountdownProps> = ({ to }) => {
 		<div>
 			<div className="release-text" style={{ marginBottom: '10px' }}>
 				Releases on
-				<br /> <b>{format(new Date(to * 1000), 'MMMM d, yyy')}</b>
+				<br />{' '}
+				<b>
+					{format(new Date(to * 1000), 'MMMM d, yyy')}
+					<Link to="https://outyet.net/calendar/books.ics">
+						<Button
+							alt="Add to Calendar"
+							title="Add to Calendar"
+							className="mb-2 ml-2"
+							size="sm"
+							color="warning"
+						>
+							<FontAwesomeIcon icon={faCalendarPlus} fixedWidth />
+						</Button>
+					</Link>
+				</b>
 			</div>
 			<ul className="flip-clock-container">
 				<CountdownPiece

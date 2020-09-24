@@ -1,17 +1,19 @@
 import React from 'react'
-import { graphql, PageProps, useStaticQuery } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 import { Book } from '../../foundation/types/Book'
 import SEO from '../presentation/components/Seo'
 import '../../static/css/_book.scss'
 import '../../static/css/_clock.scss'
 import { Countdown } from '../presentation/components/Countdown'
-import { BuyBookLink } from '../presentation/components/BuyBookLink'
+
 import { faAmazon, faAudible } from '@fortawesome/free-brands-svg-icons'
 import { Helmet } from 'react-helmet'
 import { format, parse } from 'date-fns'
-import BookFooter from '../presentation/components/BookFooter'
-
+import { AnalyticsCategory } from '../../foundation/enums/AnalyticsCategory'
 import { SocialShare } from '../presentation/components/SocialShare'
+import { ButtonLink } from '../presentation/components/ButtonLink'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBookOpen, faTag, faUser } from '@fortawesome/free-solid-svg-icons'
 
 const BookTemplate: React.FC<PageProps> = ({ data }) => {
 	if (!data) {
@@ -97,13 +99,41 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 					<section style={{ color: 'white' }} className="col-12 col-md-6">
 						<div className="release-date-container">
 							<h1 className="book-page-title">{bookNode.title}</h1>
-							<p className="book-page-author">{`${bookNode.author.name} · ${bookNode.genre}`}</p>
 
-							<SocialShare
-								id={bookNode.id}
-								hashtags={bookNode.hashtags || []}
-								text={shareMessage}
+							<ButtonLink
+								to={bookNode.author.id}
+								text={bookNode.author.name}
+								category={AnalyticsCategory.Navigation}
+								icon={<FontAwesomeIcon icon={faUser} fixedWidth />}
+								color="light"
+								outline
 							/>
+
+							{bookNode.series && (
+								<div className=" py-2 d-block">
+									<ButtonLink
+										category={AnalyticsCategory.Navigation}
+										to={bookNode.series.id}
+										text={`#${bookNode.series_index!} - ${
+											bookNode.series.title
+										}`}
+										outline
+										icon={<FontAwesomeIcon icon={faBookOpen} fixedWidth />}
+										color="light"
+										size="sm"
+									/>
+								</div>
+							)}
+							<ButtonLink
+								category={AnalyticsCategory.Navigation}
+								to={`/books/genre/${bookNode.genre}`}
+								text={bookNode.genre}
+								icon={<FontAwesomeIcon icon={faTag} fixedWidth />}
+								color="light"
+								size="sm"
+								outline
+							/>
+
 							<img
 								alt={bookNode.title}
 								className="book-page-image d-block d-md-none"
@@ -111,21 +141,41 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 							/>
 							<p className="book-page-description">{bookNode.description}</p>
 
-							{releaseDate && <Countdown to={releaseDate.getTime() / 1000} />}
+							{releaseDate && (
+								<div>
+									<Countdown to={releaseDate.getTime() / 1000} />{' '}
+									<SocialShare
+										id={bookNode.id}
+										hashtags={bookNode.hashtags || []}
+										text={shareMessage}
+									/>
+								</div>
+							)}
 
-							<section className="buy-links row">
-								<BuyBookLink
-									icon={faAmazon}
-									link={bookNode.buy_links.book}
-									action={buyAction}
+							<div>
+								<ButtonLink
+									to={bookNode.buy_links.book}
+									target="_blank"
+									className="w-100 text-left my-2"
+									size="lg"
+									category={AnalyticsCategory.BuyBookLink}
+									color="warning"
+									icon={<FontAwesomeIcon icon={faAmazon} fixedWidth />}
+									text={`${buyAction} E-Book`}
 								/>
-								<BuyBookLink
-									icon={faAudible}
-									type="Audiobook"
-									link={bookNode.buy_links.audiobook}
-									action={buyAction}
+							</div>
+							<div>
+								<ButtonLink
+									to={bookNode.buy_links.audiobook}
+									target="_blank"
+									category={AnalyticsCategory.BuyBookLink}
+									className="w-100 text-left mb-2"
+									size="lg"
+									color="warning"
+									icon={<FontAwesomeIcon icon={faAudible} fixedWidth />}
+									text={`${buyAction} Audiobook`}
 								/>
-							</section>
+							</div>
 						</div>
 					</section>
 					<section className="text-center d-none d-md-block col-12 col-md-6">
@@ -133,7 +183,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 					</section>
 				</div>
 			</div>
-			{buyAction === 'Pre-order' && <BookFooter />}
+			{/* {buyAction === 'Pre-order' && <BookFooter />} */}
 		</article>
 	)
 }
@@ -162,6 +212,7 @@ export const pageQuery = graphql`
 						book
 					}
 					series {
+						id
 						title
 						links {
 							amazon

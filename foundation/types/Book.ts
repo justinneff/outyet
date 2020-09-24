@@ -13,6 +13,7 @@ export type Book = {
 	image?: string
 	hashtags?: string[]
 	release_date?: string
-	series: Series
+	series?: Series
+	series_index?: number
 	title: string
 }

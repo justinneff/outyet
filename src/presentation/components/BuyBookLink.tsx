@@ -4,6 +4,7 @@ import ReactGA from 'react-ga'
 import React from 'react'
 import { Button } from 'reactstrap'
 import { AnalyticsCategory } from '../../../foundation/enums/AnalyticsCategory'
+import { ButtonLink } from './ButtonLink'
 
 export const BuyBookLink: React.FC<{
 	link: string
@@ -22,35 +23,15 @@ export const BuyBookLink: React.FC<{
 	}
 
 	return (
-		<a
-			className="col-12 col-md-6 d-block"
-			style={{
-				textDecoration: 'none',
-			}}
-			href={link}
+		<ButtonLink
+			onClick={captureClickEvent}
+			to={link}
+			size="lg"
+			className="mx-2 w-100"
 			target="_blank"
-		>
-			<Button
-				onClick={captureClickEvent}
-				style={{
-					color: 'black',
-					width: '100%',
-					borderRadius: '4px',
-					fontSize: '1rem',
-					display: 'flex',
-					alignItems: 'center',
-					padding: '8px',
-					backgroundColor: '#ff9900',
-				}}
-			>
-				<FontAwesomeIcon
-					fixedWidth
-					style={{ marginTop: '4px', marginRight: '8px' }}
-					icon={icon}
-				/>
-				<span className="d-inline d-md-none">{type}</span>
-				<span className="d-none d-md-inline">{withAction}</span>
-			</Button>
-		</a>
+			text={withAction}
+			color="warning"
+			icon={<FontAwesomeIcon icon={icon} fixedWidth />}
+		/>
 	)
 }

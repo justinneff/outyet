@@ -17,6 +17,7 @@ export const BuyBookLink: React.FC<{
 		ReactGA.event({
 			category: AnalyticsCategory.BuyBookLink,
 			action: `${type} button clicked in order to ${action}`,
+			label: link,
 		})
 	}
 

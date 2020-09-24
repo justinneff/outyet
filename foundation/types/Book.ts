@@ -10,6 +10,7 @@ export type Book = {
 	}
 	description: string
 	image?: string
+	hashtags?: string[]
 	release_date?: string
 	series: Series
 	title: string

@@ -11,6 +11,8 @@ import { Helmet } from 'react-helmet'
 import { format, parse } from 'date-fns'
 import BookFooter from '../presentation/components/BookFooter'
 
+import { SocialShare } from '../presentation/components/SocialShare'
+
 const BookTemplate: React.FC<PageProps> = ({ data }) => {
 	if (!data) {
 		return null
@@ -38,6 +40,11 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 		width: 400,
 	}
 
+	const shareMessage =
+		buyAction === 'Pre-order'
+			? `Countdown to the release of ${bookNode.title} on ${bookNode.release_date} now at Outyet`
+			: `${bookNode.title} is avilable now!`
+
 	const structuredData = `
 		{
 			"@context": "https://schema.org/",
@@ -58,18 +65,20 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 		}
 		`
 
+
 	return (
 		<article className="book-page-root">
 			<SEO
 				structuredData={structuredData}
 				lang="en"
 				image={seoImage}
-				title={bookNode.title}
+				title={`Outyet - ${bookNode.title}`}
 				description={bookNode.description}
 				article="book"
 			/>
 			<Helmet>
-				<title>{bookNode.title}</title>
+				<title>Outyet - {bookNode.title}</title>
+
 			</Helmet>
 
 			<div
@@ -91,6 +100,12 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 						<div className="release-date-container">
 							<h1 className="book-page-title">{bookNode.title}</h1>
 							<p className="book-page-author">{bookNode.author.name}</p>
+
+							<SocialShare
+								id={bookNode.id}
+								hashtags={bookNode.hashtags || []}
+								text={shareMessage}
+							/>
 							<img
 								alt={bookNode.title}
 								className="book-page-image d-block d-md-none"
@@ -99,6 +114,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 							<p className="book-page-description">{bookNode.description}</p>
 
 							{releaseDate && <Countdown to={releaseDate.getTime() / 1000} />}
+
 
 							<section className="buy-links row">
 								<BuyBookLink

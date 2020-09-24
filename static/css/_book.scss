@@ -42,6 +42,13 @@ body {
 		text-align: center;
 	}
 }
+.social-share {
+	margin-bottom: 2rem;
+	@media (max-width: 600px){
+		margin-bottom: 0;
+		text-align: center;
+	}
+}
 .book-page-author {
 	font-size: 32px;
 	margin-bottom: 2rem;

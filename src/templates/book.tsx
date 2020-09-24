@@ -71,12 +71,12 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 				structuredData={structuredData}
 				lang="en"
 				image={seoImage}
-				title={`Outyet - ${bookNode.title}`}
+				title={`${bookNode.title}`}
 				description={bookNode.description}
 				article="book"
 			/>
 			<Helmet>
-				<title>Outyet - {bookNode.title}</title>
+				<title>{bookNode.title}</title>
 			</Helmet>
 
 			<div

@@ -119,7 +119,9 @@
 				
 					{
 						"book": "https://www.amazon.com/gp/product/B07X8ZH6BS/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07X8ZH6BS&linkCode=as2&tag=danielgary-20&linkId=0a46ca81a6d0e4c4ac84dceff77c95bb",
-						"audiobook": "https://www.amazon.com/gp/product/B07XTPSFPY/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07XTPSFPY&linkCode=as2&tag=danielgary-20&linkId=54781124591b09d34a948c11af647311"
+						"audiobook": "https://www.amazon.com/gp/product/B07XTPSFPY/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07XTPSFPY&linkCode=as2&tag=danielgary-20&linkId=54781124591b09d34a948c11af647311",
+						"hardcover": "https://www.amazon.com/gp/product/B07XTPSFPY/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07XTPSFPY&linkCode=as2&tag=danielgary-20&linkId=54781124591b09d34a948c11af647311",
+						"paperback": "https://www.amazon.com/gp/product/B07XTPSFPY/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07XTPSFPY&linkCode=as2&tag=danielgary-20&linkId=54781124591b09d34a948c11af647311"
 					}
 				
 			],

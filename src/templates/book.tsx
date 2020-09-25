@@ -13,7 +13,13 @@ import { AnalyticsCategory } from '../../foundation/enums/AnalyticsCategory'
 import { SocialShare } from '../presentation/components/SocialShare'
 import { ButtonLink } from '../presentation/components/ButtonLink'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBookOpen, faTag, faUser } from '@fortawesome/free-solid-svg-icons'
+import {
+	faBook,
+	faBookOpen,
+	faTag,
+	faUser,
+} from '@fortawesome/free-solid-svg-icons'
+import { BuyLinkType } from '../../foundation/enums/BuyLinkType'
 
 const BookTemplate: React.FC<PageProps> = ({ data }) => {
 	if (!data) {
@@ -147,38 +153,72 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 							{releaseDate && (
 								<div>
 									<Countdown to={releaseDate.getTime() / 1000} />{' '}
-									<SocialShare
-										id={bookNode.id}
-										hashtags={bookNode.hashtags || []}
-										text={shareMessage}
-									/>
 								</div>
 							)}
 
-							<div>
-								<ButtonLink
-									to={bookNode.buy_links.book}
-									target="_blank"
-									className="w-100 text-left my-2"
-									size="lg"
-									category={AnalyticsCategory.BuyBookLink}
-									color="warning"
-									icon={<FontAwesomeIcon icon={faAmazon} fixedWidth />}
-									text={`${buyAction} E-Book`}
-								/>
+							<div className="mt-2 text-center">
+								{bookNode.buy_links.book && (
+									<ButtonLink
+										to={bookNode.buy_links.book}
+										target="_blank"
+										type={BuyLinkType.EBook}
+										className="text-left m-2"
+										size="lg"
+										category={AnalyticsCategory.BuyBookLink}
+										color="warning"
+										icon={<FontAwesomeIcon icon={faAmazon} fixedWidth />}
+										text={`${buyAction}`}
+									/>
+								)}
+
+								{bookNode.buy_links.audiobook && (
+									<ButtonLink
+										to={bookNode.buy_links.audiobook}
+										target="_blank"
+										type={BuyLinkType.Audiobook}
+										category={AnalyticsCategory.BuyBookLink}
+										className="text-left m-2"
+										size="lg"
+										color="warning"
+										icon={<FontAwesomeIcon icon={faAudible} fixedWidth />}
+										text={`${buyAction}`}
+									/>
+								)}
+
+								{bookNode.buy_links.hardcover && (
+									<ButtonLink
+										to={bookNode.buy_links.hardcover}
+										target="_blank"
+										type={BuyLinkType.Harcover}
+										category={AnalyticsCategory.BuyBookLink}
+										className="text-left m-2"
+										size="lg"
+										color="warning"
+										icon={<FontAwesomeIcon icon={faBook} fixedWidth />}
+										text={`${buyAction}`}
+									/>
+								)}
+
+								{bookNode.buy_links.paperback && (
+									<ButtonLink
+										to={bookNode.buy_links.paperback}
+										target="_blank"
+										type={BuyLinkType.Paperback}
+										category={AnalyticsCategory.BuyBookLink}
+										className="text-left m-2"
+										size="lg"
+										color="warning"
+										icon={<FontAwesomeIcon icon={faBookOpen} fixedWidth />}
+										text={`${buyAction}`}
+									/>
+								)}
 							</div>
-							<div>
-								<ButtonLink
-									to={bookNode.buy_links.audiobook}
-									target="_blank"
-									category={AnalyticsCategory.BuyBookLink}
-									className="w-100 text-left mb-2"
-									size="lg"
-									color="warning"
-									icon={<FontAwesomeIcon icon={faAudible} fixedWidth />}
-									text={`${buyAction} Audiobook`}
-								/>
-							</div>
+
+							<SocialShare
+								id={bookNode.id}
+								hashtags={bookNode.hashtags || []}
+								text={shareMessage}
+							/>
 						</div>
 					</section>
 					<section className="text-center d-none d-md-block col-12 col-md-6">
@@ -212,6 +252,8 @@ export const pageQuery = graphql`
 					buy_links {
 						audiobook
 						book
+						hardcover
+						paperback
 					}
 					series {
 						id

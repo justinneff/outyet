@@ -20,7 +20,7 @@ export const SocialShare: React.FC<{
 
 	return (
 		<div className="social-share d-block mt-2">
-			<header>Share to</header>
+			<header>Share to:</header>
 			<FacebookShareButton
 				type="button"
 				resetButtonStyle={false}

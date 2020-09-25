@@ -7,6 +7,8 @@ export type Book = {
 	buy_links: {
 		book?: string
 		audiobook?: string
+		hardcover?: string
+		paperback?: string
 	}
 	description: string
 	genre: string

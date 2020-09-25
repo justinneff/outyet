@@ -6,22 +6,17 @@ import '../../static/css/_book.scss'
 import '../../static/css/_clock.scss'
 import { Countdown } from '../presentation/components/Countdown'
 import { faAmazon, faAudible } from '@fortawesome/free-brands-svg-icons'
-import { IconName } from '@fortawesome/free-solid-svg-icons'
+import { faUser, IconName } from '@fortawesome/free-solid-svg-icons'
 import { Helmet } from 'react-helmet'
-import { format, parse } from 'date-fns'
+import { parse } from 'date-fns'
 import { AnalyticsCategory } from '../../foundation/enums/AnalyticsCategory'
 import { SocialShare } from '../presentation/components/SocialShare'
 import { ButtonLink } from '../presentation/components/ButtonLink'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-import {
-	faBook,
-	faBookOpen,
-	faTag,
-	faUser,
-} from '@fortawesome/free-solid-svg-icons'
+import { faBook, faBookOpen } from '@fortawesome/free-solid-svg-icons'
 import { BuyLinkType } from '../../foundation/enums/BuyLinkType'
-
+import { generateStructuredData } from '../../foundation/helpers/generateStructuredData'
+import { getIconName } from '../../foundation/helpers/getIconName'
 
 const BookTemplate: React.FC<PageProps> = ({ data }) => {
 	if (!data) {
@@ -55,30 +50,15 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 			? `Countdown to the release of ${bookNode.title} on ${bookNode.release_date} now at Outyet`
 			: `${bookNode.title} is available now!`
 
-	const structuredData = `
-		{
-			"@context": "https://schema.org/",
-			"@type": "Event",
-			"name": "${bookNode.title} Release",
-			"startDate": "${releaseDate ? format(releaseDate, 'yyyy-MM-dd') : ''}",
-			"endDate": "${releaseDate ? format(releaseDate, 'yyyy-MM-dd') : ''}",
-			"eventStatus": "https://schema.org/EventScheduled",
-			"eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
-			"location": {
-				"@type": "VirtualLocation",
-				"url": "${bookNode.buy_links.book}"
-			},
-			"image": [
-				"${siteUrl}${bookImage}"
-			],
-			"description": "${bookNode.description}"
-		}
-		`
-
 	return (
 		<article className="book-page-root">
 			<SEO
-				structuredData={structuredData}
+				structuredData={generateStructuredData(
+					siteUrl,
+					bookImage,
+					bookNode,
+					releaseDate
+				)}
 				lang="en"
 				image={seoImage}
 				title={`${bookNode.title}`}
@@ -117,7 +97,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 									to={bookNode.author.id}
 									text={bookNode.author.name}
 									category={AnalyticsCategory.Navigation}
-									icon={<FontAwesomeIcon icon={'user'} fixedWidth />}
+									icon={<FontAwesomeIcon icon={faUser} fixedWidth />}
 									color="light"
 									outline
 								/>
@@ -131,7 +111,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 											bookNode.series.title
 										}`}
 										outline
-										icon={<FontAwesomeIcon icon="book-open" fixedWidth />}
+										icon={<FontAwesomeIcon icon={faBookOpen} fixedWidth />}
 										color="light"
 										size="sm"
 									/>
@@ -149,7 +129,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 										text={genre.name}
 										icon={
 											<FontAwesomeIcon
-												icon={['fas', genre.icon as IconName]}
+												icon={getIconName(genre.icon)}
 												fixedWidth
 											/>
 										}
@@ -165,7 +145,6 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 									<Countdown to={releaseDate.getTime() / 1000} />{' '}
 								</div>
 							)}
-
 
 							<div className="mt-2 text-center">
 								{bookNode.buy_links.book && (

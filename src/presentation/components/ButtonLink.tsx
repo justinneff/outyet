@@ -4,14 +4,12 @@ import { Button } from 'reactstrap'
 import ReactGA from 'react-ga'
 import { AnalyticsCategory } from '../../../foundation/enums/AnalyticsCategory'
 
-
-
 import { BuyLinkType } from '../../../foundation/enums/BuyLinkType'
 
 export const ButtonLink: React.FC<{
 	text: string
 	to: string
-	type: BuyLinkType
+	type?: BuyLinkType
 	color: string
 	outline?: boolean
 	size?: string

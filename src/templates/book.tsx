@@ -5,14 +5,15 @@ import SEO from '../presentation/components/Seo'
 import '../../static/css/_book.scss'
 import '../../static/css/_clock.scss'
 import { Countdown } from '../presentation/components/Countdown'
-
 import { faAmazon, faAudible } from '@fortawesome/free-brands-svg-icons'
+import { IconName } from '@fortawesome/free-solid-svg-icons'
 import { Helmet } from 'react-helmet'
 import { format, parse } from 'date-fns'
 import { AnalyticsCategory } from '../../foundation/enums/AnalyticsCategory'
 import { SocialShare } from '../presentation/components/SocialShare'
 import { ButtonLink } from '../presentation/components/ButtonLink'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import {
 	faBook,
 	faBookOpen,
@@ -20,6 +21,7 @@ import {
 	faUser,
 } from '@fortawesome/free-solid-svg-icons'
 import { BuyLinkType } from '../../foundation/enums/BuyLinkType'
+
 
 const BookTemplate: React.FC<PageProps> = ({ data }) => {
 	if (!data) {
@@ -110,13 +112,12 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 								src={bookImage}
 							/>
 							<h1 className="book-page-title">{bookNode.title}</h1>
-
 							<div className="py-1">
 								<ButtonLink
 									to={bookNode.author.id}
 									text={bookNode.author.name}
 									category={AnalyticsCategory.Navigation}
-									icon={<FontAwesomeIcon icon={faUser} fixedWidth />}
+									icon={<FontAwesomeIcon icon={'user'} fixedWidth />}
 									color="light"
 									outline
 								/>
@@ -130,31 +131,41 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 											bookNode.series.title
 										}`}
 										outline
-										icon={<FontAwesomeIcon icon={faBookOpen} fixedWidth />}
+										icon={<FontAwesomeIcon icon="book-open" fixedWidth />}
 										color="light"
 										size="sm"
 									/>
 								</div>
 							)}
+
 							<div className="py-1">
-								<ButtonLink
-									category={AnalyticsCategory.Navigation}
-									to={`/books/genre/${bookNode.genre}`}
-									text={bookNode.genre}
-									icon={<FontAwesomeIcon icon={faTag} fixedWidth />}
-									color="light"
-									size="sm"
-									outline
-								/>
+								{bookNode.genres.map(genre => (
+									<ButtonLink
+										key={genre.id}
+										className="mr-2"
+										target="_blank"
+										category={AnalyticsCategory.GenreLink}
+										to={`${genre.link}`}
+										text={genre.name}
+										icon={
+											<FontAwesomeIcon
+												icon={['fas', genre.icon as IconName]}
+												fixedWidth
+											/>
+										}
+										color="light"
+										size="sm"
+										outline
+									/>
+								))}
 							</div>
-
 							<p className="book-page-description">{bookNode.description}</p>
-
 							{releaseDate && (
 								<div>
 									<Countdown to={releaseDate.getTime() / 1000} />{' '}
 								</div>
 							)}
+
 
 							<div className="mt-2 text-center">
 								{bookNode.buy_links.book && (
@@ -242,7 +253,12 @@ export const pageQuery = graphql`
 					hashtags
 					release_date
 					title
-					genre
+					genres {
+						id
+						name
+						icon
+						link
+					}
 					type
 					series_index
 					author {

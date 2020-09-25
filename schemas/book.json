@@ -4,7 +4,7 @@
 	"type": "object",
 	"title": "The root schema",
 	"description": "The root schema comprises the entire JSON document.",
-	"required": ["id", "type", "title", "genre", "author___NODE", "description"],
+	"required": ["id", "type", "title", "genres___NODE", "author___NODE", "description"],
 	"properties": {
 		"id": {
 			"$id": "#/properties/id",
@@ -30,13 +30,27 @@
 			"default": "",
 			"examples": ["Uncrowned (Cradle, #7)"]
 		},
-		"genre": {
-			"$id": "#/properties/genre",
-			"type": "string",
-			"title": "The genre schema",
+		"genres___NODE": {
+			"$id": "#/properties/genres___NODE",
+			"type": "array",
+			"title": "The genres schema",
 			"description": "An explanation about the purpose of this instance.",
-			"default": "",
-			"examples": ["Science Fiction"]
+			"default": [],
+			"examples": ["/books/genres/horror", "/books/genres/fantasy"],
+			"additionalItems": true,
+			"items": {
+				"$id": "#/properties/genres___NODE/items",
+				"anyOf": [
+					{
+						"$id": "#/properties/genres___NODE/items/anyOf/0",
+						"type": "string",
+						"title": "The first anyOf schema",
+						"description": "An explanation about the purpose of this instance.",
+						"default": "",
+						"examples": ["/books/genres/horror"]
+					}
+				]
+			}
 		},
 		"author___NODE": {
 			"$id": "#/properties/author___NODE",

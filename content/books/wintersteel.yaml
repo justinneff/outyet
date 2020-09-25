@@ -2,7 +2,8 @@ id: '/books/wintersteel'
 type: 'book'
 author___NODE: '/authors/will-wight'
 
-genre: 'Fantasy'
+genres___NODE:
+  - '/books/genres/fantasy'
 
 title: 'Wintersteel'
 

@@ -3,6 +3,7 @@ import { ensureDirSync } from 'fs-extra'
 
 import { createCalendar } from './operations/calendar/createCalendar'
 import { createEventDataFromBook } from './operations/calendar/createEventDataFromBook'
+
 export function onPostBuild({ reporter }) {
 	reporter.info(`Build completed`)
 }

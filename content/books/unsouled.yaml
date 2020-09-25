@@ -1,6 +1,7 @@
 id: '/books/unsouled'
 type: 'book'
-genre: 'Fantasy'
+genres___NODE:
+  - '/books/genres/fantasy'
 title: 'Unsouled'
 
 author___NODE: '/authors/will-wight'

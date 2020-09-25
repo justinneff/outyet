@@ -1,0 +1,4 @@
+id: '/books/genres/genre-name-in-kebab-case'
+name: 'Genre Name'
+icon: 'Font awesome icon matching genre'
+link: 'Link to amazon genre page'

@@ -2,7 +2,7 @@
 name: Add Book Data
 about: Describes the data needed for adding a book
 title: '[Book] - TITLE'
-genre: ''
+genres: ['list of genres for the book']
 labels: ''
 assignees: ''
 ---

@@ -1,4 +1,5 @@
 import { Author } from './Author'
+import { Genre } from './Genre'
 import { Series } from './Series'
 
 export type Book = {
@@ -11,7 +12,7 @@ export type Book = {
 		paperback?: string
 	}
 	description: string
-	genre: string
+	genres: Genre[]
 	image?: string
 	hashtags?: string[]
 	release_date?: string

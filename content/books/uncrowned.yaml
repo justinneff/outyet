@@ -1,6 +1,7 @@
 id: '/books/uncrowned'
 type: 'book'
-genre: 'Fantasy'
+genres___NODE:
+  - '/books/genres/fantasy'
 title: 'Uncrowned'
 author___NODE: '/authors/will-wight'
 series___NODE: '/series/cradle'

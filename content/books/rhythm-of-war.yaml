@@ -4,7 +4,9 @@
 
 id: '/books/rhythm-of-war'
 type: 'book'
-genre: 'Epic Fantasy'
+genres___NODE:
+  - '/books/genres/epic-fantasy'
+  - '/books/genres/fantasy'
 title: 'Rhythm of War'
 author___NODE: '/authors/brandon-sanderson'
 series___NODE: '/series/stormlight-archives'

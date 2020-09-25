@@ -1,7 +1,8 @@
 id: '/books/ready-player-two'
 type: 'book'
 title: 'Ready Player Two'
-genre: 'Science Fiction'
+genres___NODE:
+  - '/books/genres/science-fiction'
 author___NODE: '/authors/ernest-cline'
 image: '/images/ready-player-two.jpg'
 description: 'The highly anticipated sequel to the beloved worldwide bestseller Ready Player One, the “ridiculously fun and large-hearted” (NPR) near-future adventure that inspired the blockbuster Steven Spielberg film.'

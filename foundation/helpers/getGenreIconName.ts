@@ -1,11 +1,12 @@
 import {
 	faDragon,
+	faHatWizard,
 	faRobot,
 	faScroll,
 	faSkullCrossbones,
 } from '@fortawesome/free-solid-svg-icons'
 
-export function getIconName(name: string) {
+export function getGenreIconName(name: string) {
 	switch (name) {
 		case 'scroll':
 			return faScroll
@@ -15,5 +16,7 @@ export function getIconName(name: string) {
 			return faSkullCrossbones
 		case 'robot':
 			return faRobot
+		case 'hat-wizard':
+			return faHatWizard
 	}
 }

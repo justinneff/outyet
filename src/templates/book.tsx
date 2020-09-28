@@ -6,7 +6,7 @@ import '../../static/css/_book.scss'
 import '../../static/css/_clock.scss'
 import { Countdown } from '../presentation/components/Countdown'
 import { faAmazon, faAudible } from '@fortawesome/free-brands-svg-icons'
-import { faUser, IconName } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { Helmet } from 'react-helmet'
 import { parse } from 'date-fns'
 import { AnalyticsCategory } from '../../foundation/enums/AnalyticsCategory'
@@ -16,7 +16,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBook, faBookOpen } from '@fortawesome/free-solid-svg-icons'
 import { BuyLinkType } from '../../foundation/enums/BuyLinkType'
 import { generateStructuredData } from '../../foundation/helpers/generateStructuredData'
-import { getIconName } from '../../foundation/helpers/getIconName'
+import { getGenreIconName } from '../../foundation/helpers/getGenreIconName'
 
 const BookTemplate: React.FC<PageProps> = ({ data }) => {
 	if (!data) {
@@ -129,7 +129,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 										text={genre.name}
 										icon={
 											<FontAwesomeIcon
-												icon={getIconName(genre.icon)}
+												icon={getGenreIconName(genre.icon)}
 												fixedWidth
 											/>
 										}
@@ -146,18 +146,19 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 								</div>
 							)}
 
-							<div className="mt-2 text-center">
+							<header className="mt-2">{`${buyAction}:`}</header>
+							<div>
 								{bookNode.buy_links.book && (
 									<ButtonLink
 										to={bookNode.buy_links.book}
 										target="_blank"
 										type={BuyLinkType.EBook}
-										className="text-left m-2"
+										className="text-left mr-2"
 										size="lg"
 										category={AnalyticsCategory.BuyBookLink}
 										color="warning"
 										icon={<FontAwesomeIcon icon={faAmazon} fixedWidth />}
-										text={`${buyAction}`}
+										text={`${BuyLinkType.EBook}`}
 									/>
 								)}
 
@@ -171,7 +172,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 										size="lg"
 										color="warning"
 										icon={<FontAwesomeIcon icon={faAudible} fixedWidth />}
-										text={`${buyAction}`}
+										text={`${BuyLinkType.Audiobook}`}
 									/>
 								)}
 
@@ -179,13 +180,13 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 									<ButtonLink
 										to={bookNode.buy_links.hardcover}
 										target="_blank"
-										type={BuyLinkType.Harcover}
+										type={BuyLinkType.Hardcover}
 										category={AnalyticsCategory.BuyBookLink}
 										className="text-left m-2"
 										size="lg"
 										color="warning"
 										icon={<FontAwesomeIcon icon={faBook} fixedWidth />}
-										text={`${buyAction}`}
+										text={`${BuyLinkType.Hardcover}`}
 									/>
 								)}
 
@@ -199,7 +200,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 										size="lg"
 										color="warning"
 										icon={<FontAwesomeIcon icon={faBookOpen} fixedWidth />}
-										text={`${buyAction}`}
+										text={`${BuyLinkType.Paperback}`}
 									/>
 								)}
 							</div>

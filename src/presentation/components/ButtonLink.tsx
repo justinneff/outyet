@@ -48,7 +48,7 @@ export const ButtonLink: React.FC<{
 			<Link style={{ textDecoration: 'none' }} target={target} to={to}>
 				<Button
 					className={className}
-					title={`${text} ${type}`}
+					title={`${text} ${type ? type : ''}`}
 					style={{ display: 'flex', alignItems: 'center', fontSize: '0.875em' }}
 					onClick={onClickWrapper}
 					size={size}

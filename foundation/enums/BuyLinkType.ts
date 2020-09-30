@@ -1,6 +1,6 @@
 export enum BuyLinkType {
-	EBook = 'Ebook',
-	Audiobook = 'Audiobook',
+	EBook = 'Kindle E-Book',
+	Audiobook = 'Audible Audiobook',
 	Paperback = 'Paperback',
 	Hardcover = 'Hardcover',
 }

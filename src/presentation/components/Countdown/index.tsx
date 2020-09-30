@@ -85,7 +85,7 @@ export const Countdown: React.FC<CountdownProps> = ({
 	return (
 		<div>
 			<div className="release-text" style={{ marginBottom: '10px' }}>
-				{releaseText}
+				{releaseText || 'Releases on'}
 				<br />
 				<b>
 					{format(new Date(to * 1000), 'MMMM d, yyy')}

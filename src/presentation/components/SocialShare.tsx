@@ -24,7 +24,7 @@ export const SocialShare: React.FC<{
 			<FacebookShareButton
 				type="button"
 				resetButtonStyle={false}
-				className="btn btn-sm btn-primary mr-2"
+				className="btn btn-sm btn-primary mr-2  d-sm-block d-md-inline-block"
 				quote={text}
 				url={shareUrl}
 				hashtag={hashtags.join(' ')}
@@ -45,7 +45,7 @@ export const SocialShare: React.FC<{
 			<RedditShareButton
 				type="button"
 				resetButtonStyle={false}
-				className="btn btn-sm btn-primary mr-2"
+				className="btn btn-sm btn-primary mr-2 "
 				title={text}
 				url={shareUrl}
 			>

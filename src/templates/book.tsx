@@ -151,14 +151,14 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 								</div>
 							)}
 
-							<header className="mt-2">{`${buyAction}:`}</header>
-							<div>
+							<header className="mt-4">{`${buyAction}:`}</header>
+							<div className="mt-1">
 								{bookNode.buy_links.book && (
 									<ButtonLink
 										to={bookNode.buy_links.book}
 										target="_blank"
 										type={BuyLinkType.EBook}
-										className="text-left mr-2"
+										className="text-left"
 										size="lg"
 										category={AnalyticsCategory.BuyBookLink}
 										color="warning"
@@ -173,7 +173,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 										target="_blank"
 										type={BuyLinkType.Audiobook}
 										category={AnalyticsCategory.BuyBookLink}
-										className="text-left m-2"
+										className="text-left"
 										size="lg"
 										color="warning"
 										icon={<FontAwesomeIcon icon={faAudible} fixedWidth />}
@@ -187,7 +187,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 										target="_blank"
 										type={BuyLinkType.Hardcover}
 										category={AnalyticsCategory.BuyBookLink}
-										className="text-left m-2"
+										className="text-left"
 										size="lg"
 										color="warning"
 										icon={<FontAwesomeIcon icon={faBook} fixedWidth />}

@@ -44,7 +44,7 @@ export const ButtonLink: React.FC<{
 	}
 
 	return (
-		<div style={{ display: 'inline-block' }}>
+		<div className="d-sm-block d-md-inline-block mr-2 mb-2">
 			<Link style={{ textDecoration: 'none' }} target={target} to={to}>
 				<Button
 					className={className}

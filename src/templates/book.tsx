@@ -145,7 +145,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 									/>
 								))}
 							</div>
-							<p
+							<div
 								className="book-page-description"
 								dangerouslySetInnerHTML={{ __html: bookNode.description }}
 							/>

@@ -12,7 +12,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "validate-books": "yarn ajv validate -s ./schemas/book.json -d \"./content/books/*.yaml\"",
+    "validate-books": "node ./operations/validation/validateContent.js",
     "validate-authors": "yarn ajv validate -s ./schemas/author.json -d \"./content/authors/*.yaml\"",
     "validate-series": "yarn ajv validate -s ./schemas/series.json -d \"./content/series/*.yaml\"",
     "validate": "yarn run validate-books && yarn run validate-authors && yarn run validate-series"
@@ -22,7 +22,9 @@
     "@fortawesome/free-brands-svg-icons": "^5.14.0",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
+    "ajv": "^6.12.5",
     "bootstrap": "^4.5.2",
+    "colors": "^1.4.0",
     "date-fns": "^2.16.1",
     "dotenv": "^8.2.0",
     "fs-extra": "^9.0.1",
@@ -35,14 +37,17 @@
     "gatsby-transformer-yaml": "^2.4.11",
     "gatsby-transformer-yaml-full": "^0.3.4",
     "gatsby-yaml-full-markdown": "^0.3.4",
+    "glob": "^7.1.6",
     "ical-generator": "^1.15.0",
+    "log-symbols": "^4.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-ga": "^3.1.2",
     "react-helmet": "^6.1.0",
     "react-share": "^4.3.0",
     "reactstrap": "^8.6.0",
-    "sass": "^1.26.10"
+    "sass": "^1.26.10",
+    "yaml": "^1.10.0"
   },
   "devDependencies": {
     "@mdx-js/mdx": "^1.6.16",

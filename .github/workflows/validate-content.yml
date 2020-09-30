@@ -12,7 +12,11 @@ jobs:
         uses: actions/checkout@v1
       - name: Install Package Dependencies
         run: yarn install
-      - name: Validate
-        run: yarn run validate
+      - name: Validate books
+        run: yarn run validate-books
+      - name: Validate authors
+        run: yarn run validate-authors
+      - name: Validate series
+        run: yarn run validate-series
       - name: Compile
         run: yarn build

@@ -5,7 +5,7 @@ genres___NODE:
   - '/books/genres/science-fiction'
 author___NODE: '/authors/andy-weir'
 image: '/images/project-hail-mary.jpg'
-description: |
+description: !markdown |
   A lone astronaut must save the earth from disaster in this incredible new science-based thriller from the \#1 New York Times bestselling author of The Martian.
   Ryland Grace is the sole survivor on a desperate, last-chance mission–and if he fails, humanity and the earth itself will perish.
   Except that right now, he doesn’t know that. He can’t even remember his own name, let alone the nature of his assignment or how to complete it.

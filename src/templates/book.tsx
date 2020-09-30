@@ -17,6 +17,7 @@ import { faBook, faBookOpen } from '@fortawesome/free-solid-svg-icons'
 import { BuyLinkType } from '../../foundation/enums/BuyLinkType'
 import { generateStructuredData } from '../../foundation/helpers/generateStructuredData'
 import { getGenreIconName } from '../../foundation/helpers/getGenreIconName'
+import { stripHtml } from '../../foundation/helpers/stripHtml'
 
 import { Head } from '../presentation/components/Head'
 
@@ -64,7 +65,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 				lang="en"
 				image={seoImage}
 				title={`${bookNode.title}`}
-				description={bookNode.description}
+				description={stripHtml(bookNode.description)}
 				article="book"
 			/>
 			<Head title={bookNode.title} />
@@ -141,7 +142,10 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 									/>
 								))}
 							</div>
-							<p className="book-page-description">{bookNode.description}</p>
+							<p
+								className="book-page-description"
+								dangerouslySetInnerHTML={{ __html: bookNode.description }}
+							/>
 							{releaseDate && (
 								<div>
 									<Countdown

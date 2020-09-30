@@ -12,31 +12,12 @@ export const CountdownPiece: React.FC<{
 
 	let valueString = value.toString()
 
-	let nextValue = value - 1
-
-	if (nextValue < 0) {
-		nextValue = max - 1
-	}
-
-	const nextValueString = nextValue.toString()
-
 	const finalString = padNumberString(valueString, pieceCount)
-	const nextFinalString = padNumberString(nextValueString, pieceCount)
-
-	const [flipping, setFlipping] = useState(true)
-	useEffect(() => {
-		setFlipping(true)
-		setTimeout(() => setFlipping(false), 900)
-	}, [value])
 
 	const pieces: React.ReactNode[] = []
 	for (let i = 0; i < pieceCount; i++) {
 		pieces.push(
-			<CountdownDigit
-				value={finalString[i]}
-				nextValue={nextFinalString[i]}
-				key={`${keyPrefix}-${i}`}
-			/>
+			<CountdownDigit value={finalString[i]} key={`${keyPrefix}-${i}`} />
 		)
 	}
 

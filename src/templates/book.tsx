@@ -7,7 +7,7 @@ import '../../static/css/_clock.scss'
 import { Countdown } from '../presentation/components/Countdown'
 import { faAmazon, faAudible } from '@fortawesome/free-brands-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { Helmet } from 'react-helmet'
+
 import { parse } from 'date-fns'
 import { AnalyticsCategory } from '../../foundation/enums/AnalyticsCategory'
 import { SocialShare } from '../presentation/components/SocialShare'
@@ -17,6 +17,8 @@ import { faBook, faBookOpen } from '@fortawesome/free-solid-svg-icons'
 import { BuyLinkType } from '../../foundation/enums/BuyLinkType'
 import { generateStructuredData } from '../../foundation/helpers/generateStructuredData'
 import { getGenreIconName } from '../../foundation/helpers/getGenreIconName'
+
+import { Head } from '../presentation/components/Head'
 
 const BookTemplate: React.FC<PageProps> = ({ data }) => {
 	if (!data) {
@@ -65,9 +67,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 				description={bookNode.description}
 				article="book"
 			/>
-			<Helmet>
-				<title>{bookNode.title}</title>
-			</Helmet>
+			<Head title={bookNode.title} />
 
 			<div
 				className="container h-100 d-flex w-100"

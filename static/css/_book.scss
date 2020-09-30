@@ -81,6 +81,12 @@ body {
 	@media (max-width: 600px) {
 		font-size: 1.1rem;
 	}
+
+	br {
+		content: '';
+		height: 16px;
+		display: block;
+	}
 }
 .buy-links {
 	display: flex;

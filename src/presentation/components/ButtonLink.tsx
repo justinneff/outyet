@@ -15,6 +15,7 @@ export const ButtonLink: React.FC<{
 	size?: string
 	target?: string
 	className?: string
+	spacing?: number
 	category: AnalyticsCategory
 	onClick?: (e: any) => void
 	icon?: React.ReactNode
@@ -30,6 +31,7 @@ export const ButtonLink: React.FC<{
 	target,
 	className,
 	category,
+	spacing = 2,
 }) => {
 	const onClickWrapper = (e: any) => {
 		ReactGA.event({
@@ -44,7 +46,7 @@ export const ButtonLink: React.FC<{
 	}
 
 	return (
-		<div className="d-sm-block d-md-inline-block mr-2 mb-2">
+		<div className={`d-sm-block d-md-inline-block mr-${spacing} mb-${spacing}`}>
 			<Link style={{ textDecoration: 'none' }} target={target} to={to}>
 				<Button
 					className={className}

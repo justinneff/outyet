@@ -96,6 +96,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 							<div className="py-1">
 								<ButtonLink
 									to={bookNode.author.links.amazon}
+									spacing={1}
 									text={bookNode.author.name}
 									target="_blank"
 									category={AnalyticsCategory.Navigation}
@@ -107,6 +108,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 							{bookNode.series && (
 								<div className=" py-1 d-block">
 									<ButtonLink
+										spacing={1}
 										category={AnalyticsCategory.Navigation}
 										to={bookNode.series.links.amazon}
 										target="_blank"
@@ -124,6 +126,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 							<div className="py-1">
 								{bookNode.genres.map(genre => (
 									<ButtonLink
+										spacing={1}
 										key={genre.id}
 										className="mr-2"
 										target="_blank"

@@ -10,9 +10,13 @@ import { CountdownPiece } from './CountdownPiece'
 
 export type CountdownProps = {
 	to: number
+	releaseText?: string
 }
 
-export const Countdown: React.FC<CountdownProps> = ({ to }) => {
+export const Countdown: React.FC<CountdownProps> = ({
+	to,
+	releaseText = 'Releases on',
+}) => {
 	const [currentDate, setCurrentDate] = useState(new Date().getTime() / 1000)
 	const [remainingTime, setRemainingTime] = useState(0)
 	const [refreshInterval, setRefreshInterval] = useState<any>(0)
@@ -81,8 +85,8 @@ export const Countdown: React.FC<CountdownProps> = ({ to }) => {
 	return (
 		<div>
 			<div className="release-text" style={{ marginBottom: '10px' }}>
-				Releases on
-				<br />{' '}
+				{releaseText}
+				<br />
 				<b>
 					{format(new Date(to * 1000), 'MMMM d, yyy')}
 					<Link to="https://outyet.net/calendar/books.ics">

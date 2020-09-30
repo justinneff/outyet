@@ -101,6 +101,14 @@
 			"default": "M/D/YYYY",
 			"examples": ["1/1/2020"]
 		},
+		"release-text": {
+			"$id": "#/properties/release-text",
+			"type": "string",
+			"title": "The release-text schema",
+			"description": "An explanation about the purpose of this instance.",
+			"default": "Releases on",
+			"examples": ["Releases on"]
+		},
 		"hashtags": {
 			"$id": "#/properties/hashtags",
 			"type": "array",

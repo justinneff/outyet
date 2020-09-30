@@ -174,16 +174,14 @@
 		},
 		"links": {
 			"$id": "#/properties/links",
-			"type": "array",
+			"type": "object",
 			"title": "The links schema",
 			"description": "An explanation about the purpose of this instance.",
-			"default": [],
+			"default": {},
 			"examples": [
-				[
 					{
 						"amazon": "https://www.amazon.com/Will-Wight/e/B00D9S1IMO/ref=dp_byline_cont_pop_ebooks_1?&_encoding=UTF8&tag=danielgary-20&linkCode=ur2&linkId=676129460710dc7c7c332fb4f92619d0&camp=1789&creative=9325"
 					}
-				]
 			],
 			"additionalItems": true,
 			"items": {

@@ -94,8 +94,9 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 							<h1 className="book-page-title">{bookNode.title}</h1>
 							<div className="py-1">
 								<ButtonLink
-									to={bookNode.author.id}
+									to={bookNode.author.links.amazon}
 									text={bookNode.author.name}
+									target="_blank"
 									category={AnalyticsCategory.Navigation}
 									icon={<FontAwesomeIcon icon={faUser} fixedWidth />}
 									color="light"
@@ -106,7 +107,8 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 								<div className=" py-1 d-block">
 									<ButtonLink
 										category={AnalyticsCategory.Navigation}
-										to={bookNode.series.id}
+										to={bookNode.series.links.amazon}
+										target="_blank"
 										text={`#${bookNode.series_index!} - ${
 											bookNode.series.title
 										}`}
@@ -142,7 +144,10 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 							<p className="book-page-description">{bookNode.description}</p>
 							{releaseDate && (
 								<div>
-									<Countdown to={releaseDate.getTime() / 1000} />{' '}
+									<Countdown
+										to={releaseDate.getTime() / 1000}
+										releaseText={bookNode.release_text}
+									/>{' '}
 								</div>
 							)}
 
@@ -232,6 +237,7 @@ export const pageQuery = graphql`
 					id
 					hashtags
 					release_date
+					release_text
 					title
 					genres {
 						id
@@ -244,6 +250,9 @@ export const pageQuery = graphql`
 					author {
 						id
 						name
+						links {
+							amazon
+						}
 					}
 					buy_links {
 						audiobook

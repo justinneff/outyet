@@ -19,6 +19,7 @@ export async function createPages({ graphql, actions }) {
 						id
 						title
 						release_date
+						release_text
 						buy_links {
 							book
 							audiobook

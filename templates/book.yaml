@@ -13,6 +13,7 @@ author___NODE: '/authors/author-name-in-kebab-case'
 
 image: '/images/cover.jpg' # Please provide the highest quality image you can find
 description: 'Description, preferable from Amazon'
+release-text: 'Releases on' #Optional, falls back to Releases on
 # release-date: 1569488400  If the release date is not officially announced, leave it out
 
 #hashtags:    List of twitter hashtags relevant to this book

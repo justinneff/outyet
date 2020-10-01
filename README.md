@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.outyet.net">
-    <img alt="Outyet" src="https://www.outyet.net/outyet.svg" width="200" />
+    <img alt="Outyet" src="https://www.outyet.net/images/outyet.svg" width="200" />
   </a>
 </p>
 <h1 align="center">

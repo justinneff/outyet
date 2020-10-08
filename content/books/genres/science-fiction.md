@@ -1,5 +1,5 @@
 ---
-id: epic-fantasy
-link: https://amzn.to/32ZIsMf
-name: Epic Fantasy
+id: science-fiction
+link: https://amzn.to/3681yl6
+name: Science Fiction
 ---

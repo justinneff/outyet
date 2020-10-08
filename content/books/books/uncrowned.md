@@ -30,7 +30,7 @@ description: "  Emriss Silentborn, Memory of the World.\r
   greatest students together for a competition to determine whose successor is
   the best in the world:\r
 
-  \  The Uncrowned King tournament."
+  \  The Uncrowned King tournament.\n"
 release_date: 09/26/2019
 release_text: ""
 links:

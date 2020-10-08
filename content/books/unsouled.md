@@ -1,5 +1,6 @@
 ---
 id: unsouled
+type: book
 title: Unsouled
 picture: /assets/unsouled.jpg
 author: will-wight
@@ -17,13 +18,13 @@ series:
   series: cradle
   series_index: 1
 release_date: 05/20/2017
-release_text: ""
+release_text: ''
 links:
   kindle: https://amzn.to/3lrZ5qm
   audiobook: https://amzn.to/30IE5Uc
   paperback: https://amzn.to/2SFZYzg
 hashtags:
-  - "#cradleseries"
-  - "#willwight"
-  - "#iteration110"
+  - '#cradleseries'
+  - '#willwight'
+  - '#iteration110'
 ---

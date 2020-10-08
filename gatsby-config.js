@@ -29,12 +29,6 @@ module.exports = {
 		`gatsby-plugin-fontawesome-css`,
 		'gatsby-plugin-sass',
 		{
-			resolve: 'gatsby-transformer-yaml-full',
-			options: {
-				plugins: ['gatsby-yaml-full-markdown'],
-			},
-		},
-		{
 			resolve: `gatsby-plugin-google-fonts`,
 			options: {
 				fonts: ['roboto', 'raleway', 'work sans'],
@@ -45,8 +39,10 @@ module.exports = {
 			resolve: 'gatsby-source-filesystem',
 			options: {
 				path: `${__dirname}/content/`,
+				name: 'markdown-pages',
 			},
 		},
+		'gatsby-transformer-remark',
 		{
 			resolve: 'gatsby-plugin-google-analytics',
 			options: {

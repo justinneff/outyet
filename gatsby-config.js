@@ -24,6 +24,7 @@ module.exports = {
 		url: 'https://outyet.net',
 	},
 	plugins: [
+		`gatsby-plugin-netlify-cms`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-fontawesome-css`,
 		'gatsby-plugin-sass',

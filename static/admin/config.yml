@@ -1,0 +1,166 @@
+backend:
+  name: github
+  repo: danielgary/outyet
+  open_authoring: true
+publish_mode: editorial_workflow
+media_folder: /static/assets
+public_folder: /assets
+collections:
+  - name: book_genres
+    label: Book Genre
+    folder: content/books/genres
+    identifier_field: id
+    slug: '{{id}}'
+    create: true
+    fields:
+      - name: id
+        label: ID
+        pattern:
+          ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'ID must be in lower-kebab-case']
+      - name: link
+        label: External Link
+      - name: name
+        label: Name
+  - name: book_series
+    label: Book Series
+    folder: content/books/series
+    identifier_field: id
+    slug: '{{id}}'
+    create: true
+    fields:
+      - name: id
+        label: ID
+        pattern:
+          ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'ID must be in lower-kebab-case']
+      - name: link
+        label: External Link
+      - name: name
+        label: Name
+  - name: authors
+    label: Author
+    folder: content/books/authors
+    identifier_field: id
+    slug: '{{id}}'
+    create: true
+    fields:
+      - name: id
+        label: ID
+        pattern:
+          ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'ID must be in lower-kebab-case']
+      - name: name
+        label: Name
+      - name: link
+        label: External Link
+      - name: picture
+        allow_multiple: false
+        label: Picture
+        require: false
+        widget: image
+      - name: social
+        label: Social
+        widget: object
+        fields:
+          - label: 'Twitter'
+            name: 'twitter'
+            required: false
+          - label: 'Facebook'
+            name: 'facebook'
+            required: false
+
+  - name: books
+    collection: 'books'
+    label: Book
+    folder: content/books
+    identifier_field: id
+    slug: '{{id}}'
+    create: true
+    fields:
+      - {
+          name: id,
+          label: ID,
+          pattern:
+            ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'ID must be in lower-kebab-case'],
+        }
+      - { name: title, label: Title }
+      - name: picture
+        allow_multiple: false
+        label: Cover Image
+        require: false
+        widget: image
+      - {
+          name: author,
+          label: Author,
+          widget: relation,
+          collection: 'authors',
+          value_field: 'id',
+          search_fields: ['name'],
+          display_fields: ['name'],
+        }
+      - {
+          name: genre,
+          label: Genre,
+          widget: relation,
+          collection: 'book_genres',
+          value_field: 'id',
+          search_fields: ['name'],
+          display_fields: ['name'],
+          multiple: true,
+        }
+      - { name: description, label: Description, widget: markdown }
+      - name: series
+        label: Series
+        collapsed: true
+        widget: object
+        fields:
+          - label: 'Series'
+            name: 'series'
+            widget: relation
+            collection: 'book_series'
+            value_field: 'id'
+            search_fields: ['name']
+            display_fields: ['name']
+            required: false
+          - label: 'Series Number'
+            name: 'series_index'
+            required: false
+            widget: number
+            min: 1
+            value_type: int
+            step: 1
+            max: 50
+      - {
+          name: release_date,
+          label: Release Date,
+          default: '',
+          widget: date,
+          required: false,
+          format: 'MM/DD/yyyy',
+          date_format: 'MM/DD/yyyy',
+        }
+      - {
+          name: release_text,
+          label: Release Text,
+          default: '',
+          required: false,
+        }
+      - name: links
+        label: Purchase Links
+        widget: 'object'
+        fields:
+          - label: 'Kindle E-Book Link'
+            name: 'kindle'
+            required: false
+          - label: 'Audible Audiobook'
+            name: 'audiobook'
+            required: false
+          - label: 'Hardcover'
+            name: 'hardcover'
+            required: false
+          - label: 'Paperback'
+            name: 'paperback'
+            required: false
+      - name: hashtags
+        label: 'Hashtags'
+        widget: 'list'
+        field: { label: Hashtag, name: hashtag, widget: string }
+        default: []

@@ -14,6 +14,11 @@ require('dotenv').config({
 })
 
 module.exports = {
+	mapping: {
+		'MarkdownRemark.frontmatter.author': 'MarkdownRemark.frontmatter.id',
+		'MarkdownRemark.frontmatter.series.series': 'MarkdownRemark.frontmatter.id',
+		'MarkdownRemark.frontmatter.genre': 'MarkdownRemark.frontmatter.id',
+	},
 	siteMetadata: {
 		keywords:
 			'books, movies, games, tv shows, release dates, pre-order, audiobook, kindle, countdown',

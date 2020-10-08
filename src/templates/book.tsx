@@ -27,11 +27,11 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 	}
 
 	const queryData = data as any
-	const { edges } = queryData.allBooksYaml
+	const { edges } = queryData.allMarkdownRemark
 
 	const { siteUrl } = queryData.site.siteMetadata
 
-	const bookNode = edges[0].node as Book
+	const bookNode = edges[0].node.frontmatter as Book
 
 	const releaseDate = bookNode.release_date
 		? parse(bookNode.release_date, 'M/d/yyyy', new Date())
@@ -236,42 +236,45 @@ export default BookTemplate
 
 export const pageQuery = graphql`
 	query($id: String!) {
-		allBooksYaml(filter: { id: { eq: $id } }) {
+		allMarkdownRemark(filter: { id: { eq: $id } }) {
 			edges {
 				node {
-					description
-					image
-					id
-					hashtags
-					release_date
-					release_text
-					title
-					genres {
+					frontmatter {
+						description
+						picture
 						id
-						name
-						icon
-						link
-					}
-					type
-					series_index
-					author {
-						id
-						name
-						links {
-							amazon
-						}
-					}
-					buy_links {
-						audiobook
-						book
-						hardcover
-						paperback
-					}
-					series {
-						id
+						hashtags
+						release_date
+						release_text
 						title
+						genre {
+							frontmatter {
+								name
+								link
+							}
+						}
+						type
+						author {
+							frontmatter {
+								id
+								name
+								link
+							}
+						}
 						links {
-							amazon
+							audiobook
+							kindle
+							hardcover
+							paperback
+						}
+						series {
+							series {
+								frontmatter {
+									name
+									link
+								}
+							}
+							series_index
 						}
 					}
 				}

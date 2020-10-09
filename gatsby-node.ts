@@ -35,7 +35,6 @@ export async function createPages({ graphql, actions }) {
 	`)
 
 	result.data.allMarkdownRemark.edges.forEach(edge => {
-		console.log(JSON.stringify(edge, null, 2))
 		createPage({
 			path: `/books/${edge.node.frontmatter.id}`,
 			component: bookTemplate,

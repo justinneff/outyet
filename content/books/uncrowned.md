@@ -3,7 +3,8 @@ id: uncrowned
 type: book
 title: Uncrowned
 picture: /assets/uncrowned.jpg
-author: will-wight
+author:
+  - will-wight
 genre:
   - fantasy
   - science-fiction
@@ -36,13 +37,13 @@ series:
   series: cradle
   series_index: 7
 release_date: 09/26/2019
-release_text: ""
+release_text: ''
 links:
   audiobook: https://amzn.to/3lmEkMs
   kindle: https://amzn.to/3nxVlW8
   paperback: https://amzn.to/30IGQ80
 hashtags:
-  - "#cradleseries"
-  - "#willwight"
-  - "#iteration110"
+  - '#cradleseries'
+  - '#willwight'
+  - '#iteration110'
 ---

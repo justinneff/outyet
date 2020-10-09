@@ -7,7 +7,6 @@ import '../../static/css/_clock.scss'
 import { Countdown } from '../presentation/components/Countdown'
 import { faAmazon, faAudible } from '@fortawesome/free-brands-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
-
 import { parse } from 'date-fns'
 import { AnalyticsCategory } from '../../foundation/enums/AnalyticsCategory'
 import { SocialShare } from '../presentation/components/SocialShare'
@@ -18,7 +17,6 @@ import { BuyLinkType } from '../../foundation/enums/BuyLinkType'
 import { generateStructuredData } from '../../foundation/helpers/generateStructuredData'
 import { getGenreIconName } from '../../foundation/helpers/getGenreIconName'
 import { stripHtml } from '../../foundation/helpers/stripHtml'
-
 import { Head } from '../presentation/components/Head'
 import MarkdownContent from '../presentation/components/MarkdownContent'
 

@@ -18,9 +18,11 @@
     "validate": "yarn run validate-books && yarn run validate-authors && yarn run validate-series"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-pro": "^5.15.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-brands-svg-icons": "^5.14.0",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/pro-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "ajv": "^6.12.5",
     "bootstrap": "^4.5.2",

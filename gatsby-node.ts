@@ -1,5 +1,6 @@
 import path from 'path'
 import { ensureDirSync } from 'fs-extra'
+import { isAfter, addDays, parse } from 'date-fns'
 
 import { createCalendar } from './operations/calendar/createCalendar'
 import { createEventDataFromBook } from './operations/calendar/createEventDataFromBook'
@@ -44,10 +45,19 @@ export async function createPages({ graphql, actions }) {
 		})
 	})
 
-	const events = result.data.allMarkdownRemark.edges.map(e => {
-		const node = e.node.frontmatter
-		return createEventDataFromBook(node)
-	})
+	const sevenDaysAgo = addDays(new Date(), -7)
+
+	const events = result.data.allMarkdownRemark.edges
+		.filter(e =>
+			isAfter(
+				parse(e.node.frontmatter.release_date, 'MM/dd/yyyy', sevenDaysAgo),
+				sevenDaysAgo
+			)
+		)
+		.map(e => {
+			const node = e.node.frontmatter
+			return createEventDataFromBook(node)
+		})
 
 	ensureDirSync('./public/calendar')
 

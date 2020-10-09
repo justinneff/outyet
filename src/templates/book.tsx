@@ -27,8 +27,6 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 
 	const queryData = data as any
 	const { edges } = queryData.allMarkdownRemark
-	console.log('edges', edges)
-
 	const { siteUrl } = queryData.site.siteMetadata
 
 	const bookNode = edges[0].node.frontmatter as Book

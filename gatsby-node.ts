@@ -46,7 +46,7 @@ export async function createPages({ graphql, actions }) {
 	})
 
 	const events = result.data.allMarkdownRemark.edges.map(e => {
-		const node = e.node
+		const node = e.node.frontmatter
 		return createEventDataFromBook(node)
 	})
 

@@ -6,7 +6,7 @@ picture: /assets/later.jpg
 author:
   - stephen-king
 genre:
-  - horror
+  - thriller-suspense
 description: >-
   **\#1 bestselling author Stephen King returns with a brand-new novel about the
   secrets we keep buried and the cost of unearthing them.**

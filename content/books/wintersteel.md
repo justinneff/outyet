@@ -3,7 +3,8 @@ id: wintersteel
 type: book
 title: Wintersteel
 picture: /assets/wintersteel.jpg
-author: will-wight
+author:
+  - will-wight
 genre:
   - fantasy
   - science-fiction

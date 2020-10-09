@@ -3,7 +3,8 @@ id: unsouled
 type: book
 title: Unsouled
 picture: /assets/unsouled.jpg
-author: will-wight
+author:
+  - will-wight
 genre:
   - fantasy
   - science-fiction

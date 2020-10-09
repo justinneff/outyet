@@ -20,6 +20,7 @@ import { getGenreIconName } from '../../foundation/helpers/getGenreIconName'
 import { stripHtml } from '../../foundation/helpers/stripHtml'
 
 import { Head } from '../presentation/components/Head'
+import MarkdownContent from '../presentation/components/MarkdownContent'
 
 const BookTemplate: React.FC<PageProps> = ({ data }) => {
 	if (!data) {
@@ -149,9 +150,9 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 									/>
 								))}
 							</div>
-							<div
+							<MarkdownContent
 								className="book-page-description"
-								dangerouslySetInnerHTML={{ __html: bookNode.description }}
+								content={bookNode.description}
 							/>
 							{releaseDate && (
 								<div>

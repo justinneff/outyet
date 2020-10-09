@@ -10,7 +10,7 @@ export function createEventDataFromBook(book: Book): EventData | undefined {
 		summary: `${book.title} Release`,
 		allDay: true,
 		description: `${book.title} Available Now.\n${
-			book.buy_links.book ? book.buy_links.book : ''
+			book.links.kindle ? book.links.kindle : ''
 		}`,
 	}
 }

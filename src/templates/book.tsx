@@ -27,11 +27,12 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 	}
 
 	const queryData = data as any
-	const { edges } = queryData.allBooksYaml
+	const { edges } = queryData.allMarkdownRemark
+	console.log('edges', edges)
 
 	const { siteUrl } = queryData.site.siteMetadata
 
-	const bookNode = edges[0].node as Book
+	const bookNode = edges[0].node.frontmatter as Book
 
 	const releaseDate = bookNode.release_date
 		? parse(bookNode.release_date, 'M/d/yyyy', new Date())
@@ -41,7 +42,7 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 		releaseDate.getTime() / 1000 > new Date().getTime() / 1000
 			? 'Pre-order'
 			: 'Buy'
-	const bookImage = bookNode.image || '/images/cover.jpg'
+	const bookImage = bookNode.picture || '/images/cover.jpg'
 	const seoImage = {
 		src: bookImage,
 		height: 700,
@@ -95,9 +96,9 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 							<h1 className="book-page-title">{bookNode.title}</h1>
 							<div className="py-1">
 								<ButtonLink
-									to={bookNode.author.links.amazon}
+									to={bookNode.author.frontmatter.link}
 									spacing={1}
-									text={bookNode.author.name}
+									text={bookNode.author.frontmatter.name}
 									target="_blank"
 									category={AnalyticsCategory.Navigation}
 									icon={<FontAwesomeIcon icon={faUser} fixedWidth />}
@@ -110,11 +111,10 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 									<ButtonLink
 										spacing={1}
 										category={AnalyticsCategory.Navigation}
-										to={bookNode.series.links.amazon}
+										to={bookNode.series.series.frontmatter.link}
 										target="_blank"
-										text={`#${bookNode.series_index!} - ${
-											bookNode.series.title
-										}`}
+										text={`#${bookNode.series.series_index!} - ${bookNode.series.series.frontmatter.name
+											}`}
 										outline
 										icon={<FontAwesomeIcon icon={faBookOpen} fixedWidth />}
 										color="light"
@@ -124,18 +124,18 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 							)}
 
 							<div className="py-1">
-								{bookNode.genres.map(genre => (
+								{bookNode.genre.map(genre => (
 									<ButtonLink
 										spacing={1}
-										key={genre.id}
+										key={genre.frontmatter.id}
 										className="mr-2"
 										target="_blank"
 										category={AnalyticsCategory.GenreLink}
-										to={`${genre.link}`}
-										text={genre.name}
+										to={`${genre.frontmatter.link}`}
+										text={genre.frontmatter.name}
 										icon={
 											<FontAwesomeIcon
-												icon={getGenreIconName(genre.icon)}
+												icon={getGenreIconName(genre.frontmatter.icon)}
 												fixedWidth
 											/>
 										}
@@ -160,9 +160,9 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 
 							<header className="mt-4">{`${buyAction}:`}</header>
 							<div className="mt-1">
-								{bookNode.buy_links.book && (
+								{bookNode.links.kindle && (
 									<ButtonLink
-										to={bookNode.buy_links.book}
+										to={bookNode.links.kindle}
 										target="_blank"
 										type={BuyLinkType.EBook}
 										className="text-left"
@@ -174,9 +174,9 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 									/>
 								)}
 
-								{bookNode.buy_links.audiobook && (
+								{bookNode.links.audiobook && (
 									<ButtonLink
-										to={bookNode.buy_links.audiobook}
+										to={bookNode.links.audiobook}
 										target="_blank"
 										type={BuyLinkType.Audiobook}
 										category={AnalyticsCategory.BuyBookLink}
@@ -188,9 +188,9 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 									/>
 								)}
 
-								{bookNode.buy_links.hardcover && (
+								{bookNode.links.hardcover && (
 									<ButtonLink
-										to={bookNode.buy_links.hardcover}
+										to={bookNode.links.hardcover}
 										target="_blank"
 										type={BuyLinkType.Hardcover}
 										category={AnalyticsCategory.BuyBookLink}
@@ -202,9 +202,9 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 									/>
 								)}
 
-								{bookNode.buy_links.paperback && (
+								{bookNode.links.paperback && (
 									<ButtonLink
-										to={bookNode.buy_links.paperback}
+										to={bookNode.links.paperback}
 										target="_blank"
 										type={BuyLinkType.Paperback}
 										category={AnalyticsCategory.BuyBookLink}
@@ -236,42 +236,47 @@ export default BookTemplate
 
 export const pageQuery = graphql`
 	query($id: String!) {
-		allBooksYaml(filter: { id: { eq: $id } }) {
+		allMarkdownRemark(filter: {frontmatter: {id: {eq: $id}}}){
 			edges {
 				node {
-					description
-					image
-					id
-					hashtags
-					release_date
-					release_text
-					title
-					genres {
+					frontmatter {
+						description
+						picture
 						id
-						name
-						icon
-						link
-					}
-					type
-					series_index
-					author {
-						id
-						name
-						links {
-							amazon
-						}
-					}
-					buy_links {
-						audiobook
-						book
-						hardcover
-						paperback
-					}
-					series {
-						id
+						hashtags
+						release_date
+						release_text
 						title
+						genre {
+							frontmatter {
+								id
+								name
+								link
+								icon
+							}
+						}
+						type
+						author {
+							frontmatter {
+								id
+								name
+								link
+							}
+						}
 						links {
-							amazon
+							audiobook
+							kindle
+							hardcover
+							paperback
+						}
+						series {
+							series {
+								frontmatter {
+									name
+									link
+								}
+							}
+							series_index
 						}
 					}
 				}

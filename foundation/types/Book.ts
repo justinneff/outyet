@@ -5,19 +5,18 @@ import { Series } from './Series'
 export type Book = {
 	id: string
 	author: Author
-	buy_links: {
-		book?: string
+	links: {
+		kindle?: string
 		audiobook?: string
 		hardcover?: string
 		paperback?: string
 	}
 	description: string
-	genres: Genre[]
-	image?: string
+	genre: Genre[]
+	picture?: string
 	hashtags?: string[]
 	release_date?: string
 	release_text?: string
 	series?: Series
-	series_index?: number
 	title: string
 }

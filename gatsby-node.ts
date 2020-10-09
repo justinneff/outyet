@@ -13,16 +13,20 @@ export async function createPages({ graphql, actions }) {
 	const bookTemplate = path.resolve(`src/templates/book.tsx`)
 	const result = await graphql(`
 		query {
-			allBooksYaml {
+			allMarkdownRemark(filter: { frontmatter: { type: { eq: "book" } } }) {
 				edges {
 					node {
-						id
-						title
-						release_date
-						release_text
-						buy_links {
-							book
-							audiobook
+						frontmatter {
+							id
+							title
+							release_date
+							release_text
+							links {
+								audiobook
+								kindle
+								paperback
+								hardcover
+							}
 						}
 					}
 				}
@@ -30,18 +34,19 @@ export async function createPages({ graphql, actions }) {
 		}
 	`)
 
-	result.data.allBooksYaml.edges.forEach(edge => {
+	result.data.allMarkdownRemark.edges.forEach(edge => {
+		console.log(JSON.stringify(edge, null, 2))
 		createPage({
-			path: `${edge.node.id}`,
+			path: `/books/${edge.node.frontmatter.id}`,
 			component: bookTemplate,
 			context: {
-				id: edge.node.id,
+				id: edge.node.frontmatter.id,
 			},
 		})
 	})
 
-	const events = result.data.allBooksYaml.edges.map(e => {
-		const node = e.node
+	const events = result.data.allMarkdownRemark.edges.map(e => {
+		const node = e.node.frontmatter
 		return createEventDataFromBook(node)
 	})
 

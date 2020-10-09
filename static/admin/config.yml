@@ -10,28 +10,30 @@ collections:
     label: Book Genre
     folder: content/books/genres
     identifier_field: id
-    slug: '{{id}}'
     create: true
     fields:
       - name: id
         label: ID
         pattern:
           ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'ID must be in lower-kebab-case']
+      - { name: type, label: Type, widget: hidden, default: 'book-genre' }
       - name: link
         label: External Link
       - name: name
         label: Name
+      - name: icon
+        label: Font Awesome Icon (fa-)
   - name: book_series
     label: Book Series
     folder: content/books/series
     identifier_field: id
-    slug: '{{id}}'
     create: true
     fields:
       - name: id
         label: ID
         pattern:
           ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'ID must be in lower-kebab-case']
+      - { name: type, label: Type, widget: hidden, default: 'book-series' }
       - name: link
         label: External Link
       - name: name
@@ -40,7 +42,6 @@ collections:
     label: Author
     folder: content/books/authors
     identifier_field: id
-    slug: '{{id}}'
     create: true
     fields:
       - name: id
@@ -49,6 +50,7 @@ collections:
           ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'ID must be in lower-kebab-case']
       - name: name
         label: Name
+      - { name: type, label: Type, widget: hidden, default: 'book-author' }
       - name: link
         label: External Link
       - name: picture
@@ -72,7 +74,6 @@ collections:
     label: Book
     folder: content/books
     identifier_field: id
-    slug: '{{id}}'
     create: true
     fields:
       - {
@@ -81,6 +82,7 @@ collections:
           pattern:
             ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'ID must be in lower-kebab-case'],
         }
+      - { name: type, label: Type, widget: hidden, default: 'book' }
       - { name: title, label: Title }
       - name: picture
         allow_multiple: false
@@ -93,6 +95,7 @@ collections:
           widget: relation,
           collection: 'authors',
           value_field: 'id',
+          multiple: true,
           search_fields: ['name'],
           display_fields: ['name'],
         }

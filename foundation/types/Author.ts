@@ -1,7 +1,7 @@
 export type Author = {
-	id: string
-	name: string
-	links: {
-		amazon?: string
+	frontmatter: {
+		id: string
+		name: string
+		link?: string
 	}
 }

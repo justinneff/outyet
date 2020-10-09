@@ -1,5 +1,6 @@
 ---
 id: wintersteel
+type: book
 title: Wintersteel
 picture: /assets/wintersteel.jpg
 author: will-wight
@@ -31,11 +32,11 @@ release_text: The Dragon Advances
 links:
   kindle: https://amzn.to/3lwabub
   audiobook: https://amzn.to/3iGlKgQ
-  hardcover: ""
+  hardcover: ''
   paperback: https://amzn.to/33I6KuI
 hashtags:
-  - "#wintersteel"
-  - "#cradleseries"
-  - "#willwight"
-  - "#iteration110"
+  - '#wintersteel'
+  - '#cradleseries'
+  - '#willwight'
+  - '#iteration110'
 ---

@@ -14,6 +14,11 @@ require('dotenv').config({
 })
 
 module.exports = {
+	mapping: {
+		'MarkdownRemark.frontmatter.author': 'MarkdownRemark.frontmatter.id',
+		'MarkdownRemark.frontmatter.series.series': 'MarkdownRemark.frontmatter.id',
+		'MarkdownRemark.frontmatter.genre': 'MarkdownRemark.frontmatter.id',
+	},
 	siteMetadata: {
 		keywords:
 			'books, movies, games, tv shows, release dates, pre-order, audiobook, kindle, countdown',
@@ -29,12 +34,6 @@ module.exports = {
 		`gatsby-plugin-fontawesome-css`,
 		'gatsby-plugin-sass',
 		{
-			resolve: 'gatsby-transformer-yaml-full',
-			options: {
-				plugins: ['gatsby-yaml-full-markdown'],
-			},
-		},
-		{
 			resolve: `gatsby-plugin-google-fonts`,
 			options: {
 				fonts: ['roboto', 'raleway', 'work sans'],
@@ -45,8 +44,10 @@ module.exports = {
 			resolve: 'gatsby-source-filesystem',
 			options: {
 				path: `${__dirname}/content/`,
+				name: 'markdown-pages',
 			},
 		},
+		'gatsby-transformer-remark',
 		{
 			resolve: 'gatsby-plugin-google-analytics',
 			options: {

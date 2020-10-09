@@ -18,7 +18,7 @@ export function generateStructuredData(
 			"eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
 			"location": {
 				"@type": "VirtualLocation",
-				"url": "${book.buy_links.book}"
+				"url": "${book.links.kindle}"
 			},
 			"image": [
 				"${siteUrl}${bookImagePath}"

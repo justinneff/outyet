@@ -1,6 +1,8 @@
 export type Genre = {
-	id: string
-	name: string
-	icon: string
-	link: string
+	frontmatter: {
+		id: string
+		name: string
+		icon: string
+		link: string
+	}
 }

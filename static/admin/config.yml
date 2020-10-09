@@ -21,6 +21,8 @@ collections:
         label: External Link
       - name: name
         label: Name
+      - name: icon
+        label: Font Awesome Icon (fa-)
   - name: book_series
     label: Book Series
     folder: content/books/series

@@ -22,5 +22,7 @@ links:
   kindle: https://amzn.to/36OwmYw
   audiobook: https://amzn.to/3iLKX9q
   paperback: https://amzn.to/2FeAlCm
-hashtags: []
+hashtags:
+  - "#StephenKing"
+  - "#thriller"
 ---

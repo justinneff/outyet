@@ -9,29 +9,36 @@ genre:
   - science-fiction
 description: "  The highly anticipated sequel to the beloved worldwide
   bestseller _Ready Player One,_ the “ridiculously fun and large-hearted” (NPR)
-  near-future adventure that inspired the blockbuster Steven Spielberg film.  \r
+  near-future adventure that inspired the blockbuster Steven Spielberg film.
+
 
   \  **Praise for _Ready Player One_**  \r
 
-  \  “Enchanting . . . _Willy Wonka_ meets _The Matrix_.”**—_USA Today_**  \r
+  “Enchanting . . . _Willy Wonka_ meets _The Matrix_.”**—_USA Today_**  \r
 
-  \  “An addictive read . . . part intergalactic scavenger hunt, part romance,
-  and all heart.”**_—_CNN**  \r
 
-  \  “Delightful . . . the grown-up’s _Harry Potter_.”**—_HuffPost_**  \r
+  “An addictive read . . . part intergalactic scavenger hunt, part romance,
+  and all heart.”**_—_CNN**
 
-  \  “As one adventure leads expertly to the next, time simply
-  evaporates.”**—_Entertainment Weekly_**  \r
 
-  \  “Gorgeously geeky, superbly entertaining, [and] spectacularly
-  successful.”**_—Daily Mail_ (UK)**  \r
+  “Delightful . . . the grown-up’s _Harry Potter_.”**—_HuffPost_**  \r
 
-  \  “A geek touchstone.”**_—Rolling Stone_**  \r
 
-  \  **__**“A geek fantasia, ’80s culture memoir and commentary on the future
-  of online behavior all at once.”**—_Austin American-Statesman_**"
+  “As one adventure leads expertly to the next, time simply
+  evaporates.”**—_Entertainment Weekly_**
+
+
+  “Gorgeously geeky, superbly entertaining, [and] spectacularly
+  successful.”**_—Daily Mail_ (UK)**
+
+
+  “A geek touchstone.”**_—Rolling Stone_**
+
+
+  “A geek fantasia, ’80s culture memoir and commentary on the future of online
+  behavior all at once.”**—_Austin American-Statesman_**"
 release_date: 11/24/2020
-release_text: ""
+release_text: Press Start to Continue on
 links:
   kindle: https://amzn.to/2RPEJdM
   audiobook: https://amzn.to/3hRvIeD

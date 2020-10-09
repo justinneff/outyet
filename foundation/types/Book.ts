@@ -4,7 +4,7 @@ import { Series } from './Series'
 
 export type Book = {
 	id: string
-	author: Author
+	author: Author[]
 	links: {
 		kindle?: string
 		audiobook?: string

@@ -95,16 +95,19 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 							/>
 							<h1 className="book-page-title">{bookNode.title}</h1>
 							<div className="py-1">
-								<ButtonLink
-									to={bookNode.author.frontmatter.link}
-									spacing={1}
-									text={bookNode.author.frontmatter.name}
-									target="_blank"
-									category={AnalyticsCategory.Navigation}
-									icon={<FontAwesomeIcon icon={faUser} fixedWidth />}
-									color="light"
-									outline
-								/>
+								{bookNode.author.map(a => (
+									<ButtonLink
+										key={`author-${a.frontmatter.id}`}
+										to={a.frontmatter.link}
+										spacing={1}
+										text={a.frontmatter.name}
+										target="_blank"
+										category={AnalyticsCategory.Navigation}
+										icon={<FontAwesomeIcon icon={faUser} fixedWidth />}
+										color="light"
+										outline
+									/>
+								))}
 							</div>
 							{bookNode.series && (
 								<div className=" py-1 d-block">
@@ -113,8 +116,9 @@ const BookTemplate: React.FC<PageProps> = ({ data }) => {
 										category={AnalyticsCategory.Navigation}
 										to={bookNode.series.series.frontmatter.link}
 										target="_blank"
-										text={`#${bookNode.series.series_index!} - ${bookNode.series.series.frontmatter.name
-											}`}
+										text={`#${bookNode.series.series_index!} - ${
+											bookNode.series.series.frontmatter.name
+										}`}
 										outline
 										icon={<FontAwesomeIcon icon={faBookOpen} fixedWidth />}
 										color="light"
@@ -236,7 +240,7 @@ export default BookTemplate
 
 export const pageQuery = graphql`
 	query($id: String!) {
-		allMarkdownRemark(filter: {frontmatter: {id: {eq: $id}}}){
+		allMarkdownRemark(filter: { frontmatter: { id: { eq: $id } } }) {
 			edges {
 				node {
 					frontmatter {

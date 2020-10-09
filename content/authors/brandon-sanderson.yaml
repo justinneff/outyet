@@ -1,9 +1,0 @@
-id: '/authors/brandon-sanderson'
-social:
-  - twitter: '@BrandSanderson'
-name: 'Brandon Sanderson'
-image: '/images/brandon-sanderson.jpg'
-books___NODE:
-  - '/books/rhythm-of-war'
-links:
-  amazon: 'https://www.amazon.com/Brandon-Sanderson/e/B001IGFHW6/ref=dp_byline_cont_book_1?&_encoding=UTF8&tag=danielgary-20&linkCode=ur2&linkId=90c44c00e361f0ab9e28bd87bd631a83&camp=1789&creative=9325'
